@@ -33,6 +33,12 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 include:
   - _pages
+  - _projects
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -91,6 +97,13 @@ defaults:
       comments: true
       share: true
       related: true
+  # _projects
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: single
+      author_profile: true
   # _pages
   - scope:
       path: "_pages"

@@ -1,5 +1,5 @@
 ---
-title: "My first post."
+title: "My first post and a short story"
 # date: 2025-06-29T16:57:30-05:30
 categories:
   - blog

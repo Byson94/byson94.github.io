@@ -59,7 +59,7 @@ plugins:
 
 author:
   name: "Nilay"
-  avatar: "/assets/images/bio-photo.jpg"
+  avatar: "/assets/images/bio-photo.png"
   bio: "A guy who likes DevOps and Low level programming."
   links:
     - label: "Website"

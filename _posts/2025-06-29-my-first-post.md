@@ -4,8 +4,9 @@ title: "My first post."
 categories:
   - blog
 tags:
-  - Jekyll
-  - update
+  - introduction
+  - blog
+  - story
 ---
 
 Hello there!

@@ -28,7 +28,7 @@ Don't get me wrong, I actually didn't like the period where I used to make websi
 
 I would say that the first project that I ever did without the help of AI was a `git clone`. I researched Git's underlying architecture and I only used AI for learning more about how Git stores commit's and how Git's file structure works.
 
-Because of that, I did mostly break free from this habit I created during my early programming career but I still have imposter syndrome and sometimes feel that I need AI validation for the code I write.
+Because of that, I did mostly break free from this habit I created during my early programming days but I still have imposter syndrome and sometimes feel that I need AI validation for the code I write.
 
 So, if you are someone who is new to programming, I suggest that you don't touch AI at all! Be wise and only use it when you are stuck. From my experience, I would say that **AI hell** is a way lot worse than what **tutorial hell** is.
 

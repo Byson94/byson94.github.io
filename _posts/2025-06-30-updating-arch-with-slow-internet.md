@@ -76,7 +76,7 @@ But, instead of `$ sudo pacman -Syu`, you can run `$ sudo pacman -Syuw`. Why `$ 
   </div>
 </div>
 
-<!-- Diagram section over -->
+<!-- Diagram section end -->
 
 Even though both commands does almost the same thing, I suggest that you do `$ sudo pacman -Syuw` because, if you have a slow internet connection, then your goal is downloading packages more than installing it. So, `$ sudo pacman -Syuw` is a safer alternative to `$ sudo pacman -Syu` because we can install the downloaded packages whenever we want with `$ sudo pacman -Su`. But it is also important to mention that even if you run `$ sudo pacman -Syuw`, you may encounter timeouts and other problems that causes the download to fail. But the packages which are downloaded before the errors are still in your system, and the next time you run `$ sudo pacman -Syuw`, the packages listed will be less because a few packages are already downloaded.
 

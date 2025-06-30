@@ -18,11 +18,65 @@ Due to these reasons, updating arch using a slow internet is a nightmare! So, I'
 
 ## Updating & Problems
 
-Most people uses `$ sudo pacman -Syu` to update their arch. And it works fine for people with a stable internet connection! But when it comes to people with a slow internet connection, the story is different. This command will mostly **not** work as inteded. Especially because of timeouts, installation errors and `404 error codes` from arch mirrors.
+Most people uses `$ sudo pacman -Syu` to update their system. And it works fine for people with a stable internet connection! But when it comes to people with a slow internet connection, the story is different. This command will mostly **not** work as inteded. Especially because of timeouts, installation errors and `404 error codes` from arch mirrors.
 
 But, instead of `$ sudo pacman -Syu`, you can run `$ sudo pacman -Syuw`. Why `$ sudo pacman -Syuw` you may ask. It is because it only downloads the packages and doesn't install them. This is exactly what we need to download all packages one after another safely. If you are interested about this more, you can observe the following diagram:
 
-<!-- <I-need-to-add-diagram-here> -->
+<!-- Diagram section start -->
+<style>
+  .diagram-grid {
+    user-select: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .diagram-item {
+    flex: 1 1 300px;
+    text-align: center;
+  }
+
+  .diagram-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+  }
+
+  .diagram-item img:hover {
+    transform: scale(1.02);
+  }
+
+  .diagram-item p {
+    margin-top: 0.5rem;
+    font-weight: bold;
+    font-size: 0.95rem;
+  }
+
+  .diagram-item a:focus {
+    outline: none;
+  }
+
+</style>
+
+<div class="diagram-grid">
+  <div class="diagram-item">
+    <a href="/assets/images/diagrams/pacman_Syu.png" target="_blank" rel="noopener noreferrer">
+      <img src="/assets/images/diagrams/pacman_Syu.png" alt="pacman -Syu diagram" />
+    </a>
+    <p>sudo pacman -Syu</p>
+  </div>
+  <div class="diagram-item">
+    <a href="/assets/images/diagrams/pacman_Syuw.png" target="_blank" rel="noopener noreferrer">
+      <img src="/assets/images/diagrams/pacman_Syuw.png" alt="pacman -Syuw diagram" />
+    </a>
+    <p>sudo pacman -Syuw</p>
+  </div>
+</div>
+
+<!-- Diagram section over -->
 
 Even though both commands does almost the same thing, I suggest that you do `$ sudo pacman -Syuw` because, if you have a slow internet connection, then your goal is downloading packages more than installing it. So, `$ sudo pacman -Syuw` is a safer alternative to `$ sudo pacman -Syu` because we can install the downloaded packages whenever we want with `$ sudo pacman -Su`. But it is also important to mention that even if you run `$ sudo pacman -Syuw`, you may encounter timeouts and other problems that causes the download to fail. But the packages which are downloaded before the errors are still in your system, and the next time you run `$ sudo pacman -Syuw`, the packages listed will be less because a few packages are already downloaded.
 

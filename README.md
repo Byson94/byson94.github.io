@@ -1,6 +1,8 @@
 # byson94.github.io
 
-A person website to write about my projects and other things.
+A personal website to write about my projects and other things.
+
+# File structure
 
 ## Info
 
@@ -14,3 +16,11 @@ A person website to write about my projects and other things.
 
 - `/index.html`
 - `/Gemfile` (unless necessary)
+
+# Commands
+
+## Running
+
+```bash
+bundle exec jekyll serve
+```

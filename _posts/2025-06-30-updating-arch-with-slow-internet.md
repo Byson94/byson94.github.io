@@ -1,6 +1,6 @@
 ---
 title: "Updating arch linux with a slow internet"
-date: 2025-06-29T16:57:30+05:30
+date: 2025-06-30T16:57:30+05:30
 categories:
   - blog
 tags:

@@ -38,4 +38,5 @@ gitclone branch test # Creates a new branch called test
 
 If you are either a clueless person on how Git works, or want to learn something new, you can check out `gitclone` source code and learn for yourself!
 
+[Explanation of Git & Gitclone architecture](https://github.com/Byson94/gitclone/blob/main/architecture/README.md)
 [GitClone Source Code](https://github.com/Byson94/gitclone)

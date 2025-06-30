@@ -9,11 +9,15 @@ tags:
   - story
 ---
 
+## Introduction
+
 Hello there!
 
 I made this website so that I can post about projects that I am working on and also write blogs about them! I am pretty committed to making many projects so I will be posting more here from time to time.
 
-Since I don't have much to talk about anything here, let me tell you more about how I got into software development.
+Since I don't have much to talk about anything here, let me tell you my story on how I got into software development, what struggles I faced, how I overcame them and my suggestion towards newbies from this story.
+
+## My story
 
 It was in early 2024 that I made my first software. It was a [2D game](https://en.wikipedia.org/wiki/2D_computer_graphics) about shooting things and then gaining powerups from it. I made this game using [GDevelop](https://gdevelop.io/) an open-source game engine that required no code to make games. It was like a great base that helped me understand a lot of things and move towards low -evel programming.
 
@@ -36,4 +40,6 @@ So, if you are someone who is new to programming, I suggest that you don't touch
 >
 > — Me
 
-Yeah, that is it. This is the story of how I got into software development. If anyone spared their valuable time and is reading this, I hope that you had a great time or maybe found this useful. Have a great day!
+## Conclusion
+
+This is the story of how I got into software development and how I overcame the challenges that I faced. If anyone is reading this, I hope that you had a great time or maybe found this useful. Have a great day!

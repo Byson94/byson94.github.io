@@ -5,34 +5,26 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<img 
-				src="https://avatars.githubusercontent.com/u/171326211?v=4" 
-				alt="MY GitHub Profile" 
-				width="150"
-				class="block mx-auto rounded-full outline outline-yellow-400"
-			>
+<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+<Header />
 
-			<h1 class="text-center">Nilay</h1>
-			<div>
-				<p>
-					Hello, My name is Nilay and I am interested in programming and computer science!
-				</p>
-				<p>
-					I started programming in 2024 and I have done a lot of projects in many different languages. My current projects are: Theom, a desktop environment and xfsrtray, a floating, customizable tray for linux.
-				</p>
-				<p>
-					I am currently learning rust and linux.
-				</p>
-			</div>
-		</main>
-		<Footer />
-	</body>
-</html>
+<main class="max-w-xl mx-auto px-4 py-8">
+  <img 
+    src="https://avatars.githubusercontent.com/u/171326211?v=4" 
+    alt="My GitHub Profile" 
+    width="150"
+    class="block mx-auto rounded-full outline outline-yellow-400"
+  />
+
+  <div class="flex flex-col items-center space-y-4 mt-6 text-left">
+	<h1 class="text-center text-2xl font-bold mt-4">Byson94</h1>
+
+	<p class="mt-2">Hi, I build Linux tools and interfaces.</p>
+
+	<p>I love spending my time creating applications, learning low level programming and tinkering with low level systems, etc.</p>
+
+	<p class="mt-6">I'm currently learning Rust and exploring deeper parts of Linux internals.</p>
+  </div>
+</main>
+
+<Footer />

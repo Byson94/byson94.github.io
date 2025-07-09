@@ -1,0 +1,38 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<img 
+				src="https://avatars.githubusercontent.com/u/171326211?v=4" 
+				alt="MY GitHub Profile" 
+				width="150"
+				class="block mx-auto rounded-full outline outline-yellow-400"
+			>
+
+			<h1 class="text-center">Nilay AC</h1>
+			<div>
+				<p>
+					Hello, My name is Nilay and I am interested in programming and computer science!
+				</p>
+				<p>
+					I started programming in 2024 and I have done a lot of projects in many different languages. My current projects are: Theom, a desktop environment and xfsrtray, a floating, customizable tray for linux.
+				</p>
+				<p>
+					I am currently learning rust and linux.
+				</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

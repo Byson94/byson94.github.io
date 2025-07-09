@@ -1,0 +1,43 @@
+---
+import fs from 'fs';
+import path from 'path';
+
+export async function getStaticPaths() {
+  const vidsDir = path.resolve('./public/contents.videos');
+  const files = fs.readdirSync(vidsDir);
+
+  const videoFiles = files.filter(file =>
+    /\.(mp4|webm|ogg)$/i.test(file)
+  );
+
+  return videoFiles.map(file => ({
+    params: {
+      slug: file.replace(/\.(mp4|webm|ogg)$/i, ''),
+    },
+    props: {
+      filename: file,
+    },
+  }));
+}
+
+const { filename } = Astro.props;
+
+const ext = filename.split('.').pop()?.toLowerCase();
+let mime = 'video/mp4';
+if (ext === 'webm') mime = 'video/webm';
+else if (ext === 'ogg') mime = 'video/ogg';
+
+const videoUrl = `/contents.videos/${filename}`;
+---
+<html lang="en">
+  <head>
+    <title>{filename}</title>
+  </head>
+  <body style="padding: 1rem;">
+    <h1>{filename}</h1>
+    <video controls width="100%" preload="metadata">
+      <source src={videoUrl} type={mime} />
+      Your browser does not support the video tag.
+    </video>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+---
+import fs from 'fs';
+import path from 'path';
+
+// Load static paths
+export async function getStaticPaths() {
+  const dirPath = path.resolve('./src/content/text');
+  const files = fs.readdirSync(dirPath);
+
+  // Only process .txt files
+  const txtFiles = files.filter(file => file.endsWith('.txt'));
+
+  return txtFiles.map(file => ({
+    params: {
+      slug: file.replace(/\.txt$/, ''),
+    },
+    props: {
+      filename: file,
+    },
+  }));
+}
+
+const { filename } = Astro.props;
+const filePath = path.resolve('./src/content/text', filename);
+
+let content = '';
+
+try {
+  content = fs.readFileSync(filePath, 'utf-8');
+} catch (e) {
+  return new Response('File not found', { status: 404 });
+}
+---
+<html lang="en">
+  <head>
+    <title>{filename}</title>
+  </head>
+  <style>
+    body {
+      padding: 5px;
+    }
+  </style>
+  <body>
+    <pre>{content}</pre>
+  </body>
+</html>

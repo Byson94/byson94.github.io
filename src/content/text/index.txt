@@ -1,0 +1,6 @@
+Hello! Nice to see you here.
+
+Welcome to the index of the texts.
+
+Current children:
+- test file: /text/test

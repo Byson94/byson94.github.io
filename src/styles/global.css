@@ -43,7 +43,7 @@
   --darker-light-color: 12, 14, 20;
 
   --background-color: rgba(var(--lighter-light-color), 1);
-  --footer-background-color: rgba(var(--lighter-light-color), 0.9);
+  --footer-background-color: rgba(var(--lighter-light-color), 0.98);
   --box-shadow: 0 2px 6px rgba(var(--light-color), 0.4),
     0 8px 24px rgba(var(--light-color), 0.5),
     0 16px 32px rgba(var(--light-color), 0.5);

@@ -20,17 +20,46 @@ const { title, description, image = FallbackImage } = Astro.props;
 
 <script is:inline>
 	(function () {
-		try {
-			const userPref = localStorage.getItem('theme');
-			const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-			const shouldUseDark = userPref === 'dark' || (!userPref && systemPrefersDark);
-			if (shouldUseDark) {
-				document.documentElement.classList.add('dark');
-			}
-		} catch(e) {}
+		const doc = document.documentElement;
+		const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		const userPref = localStorage.getItem('theme');
+		const shouldUseDark = userPref === 'dark' || (!userPref && systemPrefersDark);
+		if (shouldUseDark) {
+			doc.classList.add('dark');
+		} else {
+			doc.classList.remove('dark');
+		}
 	})();
-</script>
 
+	document.addEventListener('DOMContentLoaded', function () {
+		const doc = document.documentElement;
+		const btn = document.getElementById('theme-toggle');
+		const iconSun = document.getElementById('icon-sun');
+		const iconMoon = document.getElementById('icon-moon');
+
+		if (!btn || !iconSun || !iconMoon) return;
+
+		function updateIcons() {
+			const isDark = doc.classList.contains('dark');
+			iconSun.style.display = isDark ? 'inline' : 'none';
+			iconMoon.style.display = isDark ? 'none' : 'inline';
+		}
+
+		btn.addEventListener('click', () => {
+			const isDark = doc.classList.contains('dark');
+			if (isDark) {
+				doc.classList.remove('dark');
+				localStorage.setItem('theme', 'light');
+			} else {
+				doc.classList.add('dark');
+				localStorage.setItem('theme', 'dark');
+			}
+			updateIcons();
+		});
+
+		updateIcons(); // Set correct icon on load
+	});
+</script>
 
 
 <!-- <style is:global>

@@ -72,6 +72,11 @@
     const [cmd, ...args] = value.trim().split(' ');
     const input = inputLine.querySelector('input');
 
+    if (cmd === "") {
+      createInputLine();
+      return;
+    }
+
     input.setAttribute('disabled', 'true');
     input.classList.add('disabled');
     input.style.background = 'transparent';

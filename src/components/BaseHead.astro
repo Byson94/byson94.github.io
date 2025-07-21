@@ -7,6 +7,9 @@ import { SITE_TITLE } from '../consts';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
 import type { ImageMetadata } from 'astro';
 
+import NotifyDaemon from "./NotifyDaemon.astro";
+import Terminal from './Terminal.astro';
+
 interface Props {
 	title: string;
 	description: string;
@@ -104,3 +107,6 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+
+<Terminal />
+<NotifyDaemon />

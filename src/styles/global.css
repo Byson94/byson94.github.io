@@ -35,6 +35,7 @@
   --text-color-light: 255, 255, 255;
   --footer-text-color: 96, 115, 159;
   --navbar-color: rgb(var(--white));
+  --notification-daemon-bg: #e6e6e6;
 }
 
 .dark {
@@ -51,6 +52,7 @@
   --text-color-light: 200, 200, 200;
   --footer-text-color: 180, 190, 210;
   --navbar-color: rgb(var(--black));
+  --notification-daemon-bg: #333333;
 }
 
 @font-face {

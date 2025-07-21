@@ -1,0 +1,91 @@
+---
+// empty
+---
+<div id="notifications"></div>
+
+<script is:inline>
+  class NotifyD {
+    constructor(containerSelector = "#notifications") {
+      this.queue = [];
+      this.maxVisible = 3;
+      this.container = document.querySelector(containerSelector);
+    }
+
+    notify(message, { timeout = 4000, type = "info" } = {}) {
+      const box = document.createElement("div");
+      box.className = `notify ${type}`;
+      box.textContent = message;
+
+      this.container.appendChild(box);
+      this.queue.push(box);
+
+      setTimeout(() => {
+        box.classList.add("fade-out");
+        box.addEventListener("animationend", () => box.remove());
+        this.queue = this.queue.filter((n) => n !== box);
+      }, timeout);
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    window.notifyd = new NotifyD();
+  });
+</script>
+
+<style is:global>
+    #notifications {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        z-index: 9999;
+    }
+
+    .notify {
+        background: var(--notification-daemon-bg);
+        color: var(--text-color);
+        padding: 0.75rem 1rem;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 0.3s ease-out;
+    }
+
+    .notify.info {
+        border-left: 4px solid #4fc3f7;
+    }
+    .notify.warn {
+        border-left: 4px solid #ffb300;
+    }
+    .notify.error {
+        border-left: 4px solid #e53935;
+    }
+
+    .notify.fade-out {
+        animation: fadeOut 0.4s forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+    }
+
+</style>

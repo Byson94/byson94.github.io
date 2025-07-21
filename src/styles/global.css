@@ -1,8 +1,22 @@
 /*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
+  STOP RIGHT THERE FELLOW HUMAN!
+
+  DANGER ZONE: 1
+
+  THIS IS A HIGHLY INFECTED REGION WHERE CODE DOESN'T MAKE SENSE
+  IT IS HIGHLY RECOMMENDED TO GO AWAY FROM THIS FILE.
+
+  IF YOU ARE A BRAVE EXPLORER OR AN EXPERIENCED VETRAN, 
+  MAKE SURE TO BRING A TON OF GUNS AND AMMUNITIONS!
+
+  YOU WONT UNDERSTAND ANYTHING!
+
+  FINAL WARNING!
+
+  ANOTHER FINAL WARNING!
+
+  I WARN YOU ON FINAL LAST TIME, AFTER THIS POINT, THE CODE WILL INFECT YOUR BRAIN!!
+*/
 
 :root {
   --accent: #2337ff;
@@ -13,6 +27,7 @@
   --lighter-light-color: 229, 233, 240; /* initially gray-light */
   --darker-light-color: 34, 41, 57; /* initially gray-dark */
   --background-color: rgba(var(--lighter-light-color), 50%), #fff;
+  --footer-background-color: rgba(var(--lighter-light-color), 1);
   --box-shadow: 0 2px 6px rgba(var(--light-color), 25%),
     0 8px 24px rgba(var(--light-color), 33%),
     0 16px 32px rgba(var(--light-color), 33%);
@@ -28,6 +43,7 @@
   --darker-light-color: 12, 14, 20;
 
   --background-color: rgba(var(--lighter-light-color), 1);
+  --footer-background-color: rgba(var(--lighter-light-color), 0.9);
   --box-shadow: 0 2px 6px rgba(var(--light-color), 0.4),
     0 8px 24px rgba(var(--light-color), 0.5),
     0 16px 32px rgba(var(--light-color), 0.5);

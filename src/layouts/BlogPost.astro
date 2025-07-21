@@ -53,14 +53,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.dark .title h1 {
 				color: rgb(var(--text-color-light));
 			}
-			.dark h1,
-			.dark h2,
-			.dark h3,
-			.dark h4,
-			.dark h5,
-			.dark h6 {
-			color: rgb(var(--text-color-light));
-			}
 			.date {
 				margin-bottom: 0.5em;
 			}
@@ -73,6 +65,18 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				color: rgb(var(--text-color-light));
 			}
 		</style>
+
+		<style is:global>
+			.dark .prose h1,
+			.dark .prose h2,
+			.dark .prose h3,
+			.dark .prose h4,
+			.dark .prose h5,
+			.dark .prose h6 {
+				color: rgb(var(--text-color-light));
+			}
+		</style>
+
 	</head>
 
 	<body>

@@ -17,6 +17,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description, image = FallbackImage } = Astro.props;
 ---
 
+<script is:inline>
+	(function () {
+		try {
+			const userPref = localStorage.getItem('theme');
+			const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+			const shouldUseDark = userPref === 'dark' || (!userPref && systemPrefersDark);
+			if (shouldUseDark) {
+				document.documentElement.classList.add('dark');
+			}
+		} catch(e) {}
+	})();
+</script>
+
+
+
 <style is:global>
 	@import '../styles/global.css';
 </style>

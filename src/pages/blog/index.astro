@@ -20,6 +20,9 @@ const posts = (await getCollection('blog')).sort(
 			main {
 				width: 960px;
 			}
+			body {
+				background: linear-gradient(var(--background-color)) no-repeat;
+			}
 			ul {
 				display: flex;
 				flex-wrap: wrap;
@@ -59,12 +62,12 @@ const posts = (await getCollection('blog')).sort(
 			}
 			.title {
 				margin: 0;
-				color: rgb(var(--black));
+				color: rgb(var(--text-color-light));
 				line-height: 1;
 			}
 			.date {
 				margin: 0;
-				color: rgb(var(--gray));
+				color: rgb(var(--text-color-light));
 			}
 			ul li a:hover h4,
 			ul li a:hover .date {

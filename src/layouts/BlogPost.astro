@@ -20,6 +20,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				max-width: 100%;
 				margin: 0;
 			}
+			body {
+				background: linear-gradient(var(--background-color)) no-repeat;
+			}
 			.hero-image {
 				width: 100%;
 			}
@@ -34,7 +37,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				max-width: calc(100% - 2em);
 				margin: auto;
 				padding: 1em;
-				color: rgb(var(--gray-dark));
+				color: rgb(var(--darker-light-color));
 			}
 			.title {
 				margin-bottom: 1em;
@@ -43,14 +46,19 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				line-height: 1;
 			}
 			.title h1 {
+				color: rgb(var(--text-color-light));
 				margin: 0 0 0.5em 0;
 			}
 			.date {
 				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
 			}
 			.last-updated-on {
 				font-style: italic;
+			}
+
+			.dark .date,
+			.dark .last-updated-on {
+				color: rgb(var(--text-color-light));
 			}
 		</style>
 	</head>

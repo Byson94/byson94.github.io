@@ -24,7 +24,7 @@
 
 .dark {
   --light-color: 20, 25, 35;
-  --lighter-light-color: 32, 37, 48;
+  --lighter-light-color: 26, 29, 35;
   --darker-light-color: 12, 14, 20;
 
   --background-color: rgba(var(--lighter-light-color), 1);

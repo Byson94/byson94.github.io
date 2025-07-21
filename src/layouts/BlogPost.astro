@@ -37,7 +37,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				max-width: calc(100% - 2em);
 				margin: auto;
 				padding: 1em;
-				color: rgb(var(--darker-light-color));
+			}
+			.dark .prose {
+				color: rgb(var(--text-color-light));
 			}
 			.title {
 				margin-bottom: 1em;
@@ -46,8 +48,18 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				line-height: 1;
 			}
 			.title h1 {
-				color: rgb(var(--text-color-light));
 				margin: 0 0 0.5em 0;
+			}
+			.dark .title h1 {
+				color: rgb(var(--text-color-light));
+			}
+			.dark h1,
+			.dark h2,
+			.dark h3,
+			.dark h4,
+			.dark h5,
+			.dark h6 {
+			color: rgb(var(--text-color-light));
 			}
 			.date {
 				margin-bottom: 0.5em;

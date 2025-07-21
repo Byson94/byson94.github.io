@@ -1,0 +1,177 @@
+<div id="terminal-overlay" class="terminal-overlay hidden">
+  <div class="terminal">
+    <div id="terminal-output" class="output"></div>
+  </div>
+</div>
+
+<script type="module">
+  const overlay = document.getElementById('terminal-overlay');
+  const output = document.getElementById('terminal-output');
+
+  const commands = {
+    help: () => `Available commands: \n- help\n- about\n- projects\n- contact\n- theme [light|dark]\n- clear`,
+    about: () => `The world's best portfolio website!`,
+    projects: () => `- Theom (i3 based DE)\n- Biszbo (A chatapp)\n- GitClone (An educational git clone)\n- xfsrtray (A floating and customizable linux tray)\n- This Portfolio itself!`,
+    contact: () => `Email: byson94wastaken@gmail.com\nGitHub: @byson94`,
+    theme: (arg) => {
+      if (arg === 'dark') document.documentElement.classList.add('dark');
+      else if (arg === 'light') document.documentElement.classList.remove('dark');
+      else return `Usage: theme [light|dark]`;
+      return `Theme set to ${arg}`;
+    },
+    clear: () => {
+      output.innerHTML = '';
+      createInputLine();
+      return '';
+    },
+    exit: () => {
+      overlay.classList.add('hidden');
+      return 'Exiting...';
+    },
+    sudo: () => `Permission denied. This isn't a real shell my guy.`,
+  };
+
+  function createInputLine() {
+    const inputLine = document.createElement('div');
+    inputLine.className = 'input-line';
+
+    const prompt = document.createElement('span');
+    prompt.className = 'prompt';
+    prompt.textContent = '$';
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.autofocus = true;
+
+    inputLine.appendChild(prompt);
+    inputLine.appendChild(input);
+    output.appendChild(inputLine);
+    input.focus();
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        handleCommand(input.value, inputLine);
+      } else if (e.key === 'Escape') {
+        overlay.classList.add('hidden');
+      }
+    });
+  }
+
+  function writeOutput(text) {
+    const div = document.createElement('div');
+    div.className = 'line';
+    div.textContent = text;
+    output.appendChild(div);
+    output.scrollTop = output.scrollHeight;
+  }
+
+  function handleCommand(value, inputLine) {
+    const [cmd, ...args] = value.trim().split(' ');
+    const input = inputLine.querySelector('input');
+
+    input.setAttribute('disabled', 'true');
+    input.classList.add('disabled');
+    input.style.background = 'transparent';
+    input.style.border = 'none';
+
+    const fn = commands[cmd];
+    const result = fn ? fn(args.join(' ')) : `Command not found: ${cmd}`;
+    if (result) writeOutput(result);
+
+    if (cmd !== 'clear') {
+      createInputLine();
+    }
+  }
+
+  overlay.addEventListener('click', () => {
+    const lastInput = output.querySelector('.input-line:last-child input');
+    if (lastInput && document.activeElement !== lastInput) {
+      lastInput.focus();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 't') {
+      overlay.classList.toggle('hidden');
+      if (!overlay.classList.contains('hidden')) {
+        if (!output.querySelector('.input-line')) {
+          initTerminal();
+        } else {
+          const lastInput = output.querySelector('.input-line:last-child input');
+          lastInput.focus();
+        }
+      }
+    }
+  });
+
+  function initTerminal() {
+    writeOutput("Awesome Terminal");
+    writeOutput("Type 'help' to see the available commands!");
+    writeOutput("Press escape or type exit to exit this terminal.");
+    createInputLine();
+  }
+
+  // Initialize on load
+  initTerminal();
+</script>
+
+<style is:global>
+.terminal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.95);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.terminal {
+  background: #1e1e1e;
+  color: #ddd;
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 500px;
+  overflow-y: auto;
+  font-family: monospace;
+  box-shadow: 0 0 5px 4px #111111;
+}
+
+.output {
+  margin-bottom: 0.5rem;
+  white-space: pre-line;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.input-line {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.prompt {
+  color: #6af;
+}
+
+input[type="text"] {
+  background: transparent;
+  border: none;
+  color: inherit;
+  width: 100%;
+  outline: none;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+input[disabled] {
+  color: #aaa;
+}
+</style>

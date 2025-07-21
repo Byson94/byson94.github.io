@@ -38,7 +38,7 @@ import { SITE_TITLE } from '../consts';
 	header {
 		margin: 0;
 		padding: 0 1em;
-		background: white;
+		background: rgba(var(--white));
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
 	}
 	h2 {
@@ -52,8 +52,10 @@ import { SITE_TITLE } from '../consts';
 	}
 	nav {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
+		gap: 1em;
 	}
 	nav a {
 		padding: 1em 0.5em;
@@ -69,9 +71,28 @@ import { SITE_TITLE } from '../consts';
 	.social-links a {
 		display: flex;
 	}
+	.internal-links {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.5em;
+	}
+
 	@media (max-width: 720px) {
+		.internal-links {
+			width: 100%;
+			justify-content: space-around;
+			order: 2;
+		}
+		h2 {
+			padding-top: 1em;
+			order: 1;
+			width: 100%;
+			text-align: center;
+		}
 		.social-links {
 			display: none;
 		}
 	}
+
 </style>

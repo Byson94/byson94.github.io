@@ -9,19 +9,26 @@
   const output = document.getElementById('terminal-output');
 
   const commands = {
-    help: () => `Available commands: \n- help\n- about\n- projects\n- contact\n- theme [light|dark]\n- notify_send [message]\n- clear\n - exit`,
+    help: () => `Available commands: \n- help\n- about\n- projects\n- contact\n- theme [light|dark]\n- notify_send [message]\n- pwd\n- ls\n- cd [path]\n- echo [message]\n- clear\n - exit`,
     about: () => `The world's best portfolio website!`,
     projects: () => `- Theom (i3 based DE)\n- Biszbo (A chatapp)\n- GitClone (An educational git clone)\n- xfsrtray (A floating and customizable linux tray)\n- This Portfolio itself!`,
     contact: () => `Email: byson94wastaken@gmail.com\nGitHub: @byson94`,
     theme: (arg) => {
-      if (arg === 'dark') document.documentElement.classList.add('dark');
-      else if (arg === 'light') document.documentElement.classList.remove('dark');
+      if (arg === 'dark') { 
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+      else if (arg === 'light') { 
+        document.documentElement.classList.remove('dark'); 
+        localStorage.setItem('theme', 'light');
+      }
       else return `Usage: theme [light|dark]`;
       return `Theme set to ${arg}`;
     },
     notify_send: (arg) => {
       window.notifyd.notify(arg, { type: "info" });
     },
+    echo: (arg) => arg,
     ls: () => {
       const vfs = get_vfs();
       const node = getNode(vfs, currentPath);

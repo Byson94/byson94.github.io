@@ -2,7 +2,7 @@
 title: "Another silly post"
 description: "A silly post I guess?"
 pubDate: "Jul 22 2025"
-heroImage: "../../assets/blog-placeholder-about.jpg"
+heroImage: "../../assets/silly.png"
 ---
 
 A silly post that I am making without any clue on what I should write here. Well... I guess I can talk about the new features that I introduced to this website!

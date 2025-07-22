@@ -8,16 +8,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 <Header />
 
-<main class="max-w-xl mx-auto px-4 py-8">
-  <style>
-    body {
-      background: linear-gradient(var(--background-color)) no-repeat;
-    }
-    h1, p {
-      color: var(--text-color);
-    }
-  </style>
+<style>
+  body {
+    background: linear-gradient(var(--background-color)) no-repeat;
+  }
+  h1, p {
+    color: var(--text-color);
+  }
+</style>
 
+<main class="w-full max-w-xl mx-auto px-4 sm:px-6 md:px-8">
   <img 
     src="https://avatars.githubusercontent.com/u/171326211?v=4" 
     alt="My GitHub Profile" 
@@ -25,20 +25,23 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     class="block mx-auto rounded-full outline outline-yellow-400"
   />
 
-  <div class="flex flex-col items-center space-y-4 mt-6 text-left">
-	<h1 class="text-center text-2xl font-bold mt-4">Hello there!</h1>
+  <div class="flex flex-col items-center space-y-4 mt-6 text-center">
+    <h1 class="text-center text-2xl font-bold mt-4">Hello there!</h1>
 
-	<p class="mt-2">Hi, I build Linux tools and interfaces.</p>
+    <div class="w-full max-w-prose">
+      <p class="mt-2">Hi, I build Linux tools and interfaces.</p>
 
-	<p>I love spending my time creating applications, learning low level programming and tinkering with low level systems, etc.</p>
+      <p>I love spending my time creating applications, learning low level programming and tinkering with low level systems, etc.</p>
 
-	<p class="mt-6">I'm currently learning Rust and exploring deeper parts of Linux internals.</p>
+      <p class="mt-6">I'm currently learning Rust and exploring deeper parts of Linux internals.</p>
 
-  <p class="bg-teal-500 p-2 r-2 rounded-3xl">
-    Anyway, want to see something cool?
-    Press 'ctrl+alt+k'!
-  </p>
+      <p class="bg-teal-500 p-2 rounded-3xl">
+        Anyway, want to see something cool?
+        Press 'ctrl+alt+k'!
+      </p>
+    </div>
   </div>
 </main>
+
 
 <Footer />

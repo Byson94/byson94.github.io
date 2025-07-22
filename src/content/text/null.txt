@@ -1,0 +1,1 @@
+crw-rw-rw- 1 root root 1, 1 Jan 2000 00:01 /dev/null

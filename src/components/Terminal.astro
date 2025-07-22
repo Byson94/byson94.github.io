@@ -97,6 +97,49 @@
 
       return `cd: no such directory: ${arg}`;
     },
+    rm: (args) => {
+      if (args === "/") {
+        document.body.innerHTML = `
+          <style>
+            body {
+              background: black;
+              color: red;
+              font-family: monospace;
+              font-size: 2rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 100vh;
+              overflow: hidden;
+              animation: shake 0.3s infinite;
+            }
+
+            @keyframes shake {
+              0% { transform: translate(1px, 1px); }
+              25% { transform: translate(-1px, 2px); }
+              50% { transform: translate(-3px, -1px); }
+              75% { transform: translate(2px, 3px); }
+              100% { transform: translate(1px, -1px); }
+            }
+          </style>
+          <div>
+            <p>rm / executed.</p>
+            <p>Goodbye, world.</p>
+          </div>
+        `;
+
+        history.pushState({}, '', '/text/null');
+
+        setTimeout(() => {
+          document.body.onclick = () => {};
+          document.body.onkeydown = () => {};
+        }, 100);
+
+        return '';
+      } else {
+        return 'Could not remove component.'
+      }
+    },
     pwd: () => window.location.pathname || '/',
     history: () => commandHistory
       .map((cmd, i) => `${(1 + i).toString().padStart(4, ' ')}  ${cmd}`)

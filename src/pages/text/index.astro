@@ -1,0 +1,19 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+---
+
+<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
+<style>
+  body {
+    background: linear-gradient(var(--background-color)) no-repeat;
+  }
+  h1, p {
+    color: var(--text-color);
+  }
+</style>
+
+<main>
+    <h1>Text</h1>
+</main>

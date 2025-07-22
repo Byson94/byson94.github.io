@@ -22,6 +22,52 @@
     notify_send: (arg) => {
       window.notifyd.notify(arg, { type: "info" });
     },
+    ls: () => {
+      const vfs = get_vfs();
+      const node = getNode(vfs, currentPath);
+      if (node && typeof node === 'object') {
+        return Object.keys(node).join('\n') || '[empty]';
+      }
+      return 'Not a directory';
+    },
+    cd: (arg) => {
+      const vfs = get_vfs();
+      const pathParts = arg.split('/').filter(Boolean);
+
+      let tempPath = arg.startsWith('/') ? [] : [...currentPath];
+
+      for (const part of pathParts) {
+        if (part === '.') continue;
+        if (part === '..') tempPath.pop();
+        else tempPath.push(part);
+      }
+
+      const node = getNode(vfs, tempPath);
+
+      if (node === null || typeof node === 'object') {
+        const newPath = '/' + tempPath.join('/');
+
+        fetch(newPath, { method: 'HEAD' }).then(res => {
+          if (res.ok) {
+            currentPath = tempPath;
+            window.location.assign(newPath);
+          } else {
+            writeOutput(`cd: no such directory: ${arg}`);
+            createInputLine();
+          }
+        }).catch(() => {
+          writeOutput(`cd: failed to check path: ${arg}`);
+          createInputLine();
+        });
+
+        return '';
+      }
+
+      return `cd: no such directory: ${arg}`;
+    },
+    pwd: () => {
+      return window.location.pathname || '/';
+    },
     clear: () => {
       output.innerHTML = '';
       createInputLine();
@@ -33,6 +79,29 @@
     },
     sudo: () => `Permission denied. This isn't a real shell my guy.`,
   };
+
+  function get_vfs() {
+    return {
+      "404": null,
+      "about": null,
+      "blog": {
+        "[...slug]": null
+      },
+      "projects": null,
+      "text": {
+        "[slug]": null
+      },
+      "videos": {
+        "[slug]": null
+      }
+    }
+  }
+
+  let currentPath = [];
+
+  function getNode(vfs, path) {
+    return path.reduce((node, key) => (node && typeof node === 'object' && node[key] !== undefined ? node[key] : null), vfs);
+  }
 
   function createInputLine() {
     const inputLine = document.createElement('div');
@@ -124,62 +193,62 @@
 </script>
 
 <style is:global>
-.terminal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(20, 20, 20, 0.95);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.2s ease;
-}
+  .terminal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 20, 20, 0.95);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+  }
 
-.hidden {
-  display: none;
-}
+  .hidden {
+    display: none;
+  }
 
-.terminal {
-  background: #1e1e1e;
-  color: #ddd;
-  padding: 1rem;
-  border-radius: 10px;
-  max-width: 800px;
-  width: 90%;
-  max-height: 500px;
-  overflow-y: auto;
-  font-family: monospace;
-  box-shadow: 0 0 5px 4px #111111;
-}
+  .terminal {
+    background: #1e1e1e;
+    color: #ddd;
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 500px;
+    overflow-y: auto;
+    font-family: monospace;
+    box-shadow: 0 0 5px 4px #111111;
+  }
 
-.output {
-  margin-bottom: 0.5rem;
-  white-space: pre-line;
-  height: 300px;
-  overflow-y: auto;
-}
+  .output {
+    margin-bottom: 0.5rem;
+    white-space: pre-line;
+    height: 300px;
+    overflow-y: auto;
+  }
 
-.input-line {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 0.25rem;
-}
+  .input-line {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
 
-.prompt {
-  color: #6af;
-}
+  .prompt {
+    color: #6af;
+  }
 
-input[type="text"] {
-  background: transparent;
-  border: none;
-  color: inherit;
-  width: 100%;
-  outline: none;
-  font-family: inherit;
-  font-size: 1rem;
-}
+  input[type="text"] {
+    background: transparent;
+    border: none;
+    color: inherit;
+    width: 100%;
+    outline: none;
+    font-family: inherit;
+    font-size: 1rem;
+  }
 
-input[disabled] {
-  color: #aaa;
-}
+  input[disabled] {
+    color: #aaa;
+  }
 </style>

@@ -64,6 +64,24 @@ const { title, description, image = FallbackImage } = Astro.props;
 	});
 </script>
 
+<script type="module">
+  const notifyKey = "notified_welcome_v1";
+
+  function waitForNotifyd(retries = 50) {
+    if (localStorage.getItem(notifyKey)) return;
+
+    if (window.notifyd?.notify) {
+      window.notifyd.notify("Welcome to this awesome website", { type: "info" });
+      localStorage.setItem(notifyKey, "true");
+    } else if (retries > 0) {
+      setTimeout(() => waitForNotifyd(retries - 1), 100);
+    } else {
+      console.warn("NotifyDaemon never initialized.");
+    }
+  }
+
+  waitForNotifyd();
+</script>
 
 <!-- <style is:global>
 	@import '../styles/global.css';

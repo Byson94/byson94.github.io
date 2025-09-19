@@ -6,7 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 
 const projects = (await getCollection('projects')).sort(
-	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+	(a, b) => a.data.pos.valueOf() - b.data.pos.valueOf(),
 );
 ---
 

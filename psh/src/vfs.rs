@@ -27,7 +27,7 @@ pub fn build_vfs() -> VfsNode {
         VfsNode::file("about.txt", "I'm Byson94, a student passionate about Linux and low-level systems."),
         VfsNode::dir("projects", vec![
             VfsNode::file("psh.md", "A POSIX-ish shell compiled to WASM."),
-            VfsNode::file("gitclone.md", "A fast git clone utility written in Rust."),
+            VfsNode::file("ewwii.md", "A fast and extensive widget system written in Rust."),
             VfsNode::file("others.md", r#"
 Where are the others you ask? Well.... I am too lazy to add them.
 There are literally like 10+ projects!

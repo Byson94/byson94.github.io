@@ -1,0 +1,10 @@
+WHITESPACE = _{ " " | "\t" }
+
+program = { SOI ~ (command ~ (pipe ~ command)*)? ~ EOI }
+command = { word+ }
+pipe  = { "|" }
+
+word = @{ quoted | unquoted }
+quoted = { "\"" ~ inner ~ "\"" }
+inner = { (!"\"" ~ ANY)* }
+unquoted = { (!(" " | "\t" | "|" | "\n" | "\"") ~ ANY)+ }

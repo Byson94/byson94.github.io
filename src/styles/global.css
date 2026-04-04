@@ -261,3 +261,41 @@ a {
   border: 1px solid var(--accent-alt);
   padding: 1px 6px;
 }
+
+/* Footer */
+footer {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1rem;
+  border-top: 1px solid var(--border);
+  gap: 1rem;
+}
+
+.terminal-toggle {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  margin-left: auto;
+  padding: 0.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s, border-color 0.15s;
+  animation: bounce 2s ease infinite;
+}
+
+.terminal-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.terminal-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}

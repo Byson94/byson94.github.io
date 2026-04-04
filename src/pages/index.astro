@@ -8,6 +8,7 @@ import Footer from "../components/Footer.astro";
 import About from "../components/About.astro";
 import Skills from "../components/Skills.astro";
 import Projects from "../components/Projects.astro";
+import Terminal from "../components/Terminal.astro";
 ---
 
 <Layout title="Home">
@@ -23,7 +24,9 @@ import Projects from "../components/Projects.astro";
       <section id="projects">
         <Projects />
       </section>
-      <Footer />
+      <Footer>
+        <Terminal />
+      </Footer>
     </main>
   </div>
 </Layout>

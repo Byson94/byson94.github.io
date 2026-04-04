@@ -29,6 +29,7 @@ import { Icon } from 'astro-icon/components';
     toggle!.addEventListener('click', () => {
         overlay!.classList.toggle('open');
         document.body.classList.toggle('overlay-open');
+        toggle!.blur();
     });
 
     close!.addEventListener('click', () => {

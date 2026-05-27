@@ -89,6 +89,7 @@ import "../styles/miniapps.css";
 
     // ignore modifier-only keys
     if (e.key.length > 1) return;
+    if (e.ctrlKey || e.altKey || e.metaKey) return;
 
     buffer += e.key;
     updateCurrentLine();

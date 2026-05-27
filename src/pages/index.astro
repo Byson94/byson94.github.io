@@ -30,3 +30,25 @@ import Terminal from "../components/Terminal.astro";
     </main>
   </div>
 </Layout>
+
+<script>
+  const toggle = document.getElementById('terminal-toggle');
+  const overlay = document.getElementById('terminal-overlay');
+  const close = document.getElementById('terminal-overlay-close');
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === "j") {
+      window.scrollBy(0, 200);
+    }
+
+    if (event.key === "k") {
+      window.scrollBy(0, -200);
+    }
+
+    if (event.ctrlKey && event.key === "/") {
+      overlay!.classList.toggle('open');
+      document.body.classList.toggle('overlay-open');
+      toggle!.blur();
+    }
+  });
+</script>

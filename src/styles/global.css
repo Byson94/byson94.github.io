@@ -29,6 +29,7 @@ body {
   font-family: 'Iosevka', monospace;
   font-size: 15px;
   line-height: 1.6;
+  overflow: hidden;
 }
 
 a {
@@ -47,18 +48,61 @@ a {
   flex: 1;
 }
 
+/* Window */
+#window_frame {
+  align-self: stretch;
+  flex-shrink: 0;
+  position: absolute;
+  top: 0; left: 0; right: 0; 
+  height: 25px;
+  cursor: grab;
+  background-color: var(--border);
+  border-radius: 10px 10px 0 0;
+  padding-left: 10px;
+}
+
+.window {
+  width: 500px;
+  height: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  gap: 2rem;
+  padding: 2rem;
+  padding-top: calc(2rem + 20px);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  border-top: none;
+  background-color: var(--bg-panel);
+  overflow: hidden;
+}
+
+.content-area {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
 /* Hero */
 .hero {
   width: 380px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   gap: 2rem;
   padding: 2rem;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  border-right: 1px solid var(--border);
+  padding-top: calc(2rem + 20px);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  border-top: none;
   background-color: var(--bg-panel);
 }
 
@@ -121,6 +165,7 @@ a {
 .hero-nav {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 0.4rem;
 }
 
@@ -298,4 +343,29 @@ footer {
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-4px); }
+}
+
+/* Other */
+.projects-win {
+    display: none;
+}
+
+.projects-win.active {
+    display: flex;
+}
+
+.about-win {
+    display: none
+}
+
+.about-win.active {
+    display: flex;
+}
+
+.skills-win {
+    display: none;
+}
+
+.skills-win.active {
+    display: flex;
 }

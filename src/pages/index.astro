@@ -12,43 +12,45 @@ import Terminal from "../components/Terminal.astro";
 ---
 
 <Layout title="Home">
-  <div class="tui-frame">
     <Hero />
-    <main class="tui-content">
-      <section id="about">
-        <About />
-      </section>
-      <section id="skills">
-        <Skills />
-      </section>
-      <section id="projects">
-        <Projects />
-      </section>
-      <Footer>
-        <Terminal />
-      </Footer>
-    </main>
-  </div>
+    <About /> 
+    <Skills />
+    <Projects />
 </Layout>
 
 <script>
-  const toggle = document.getElementById('terminal-toggle');
-  const overlay = document.getElementById('terminal-overlay');
-  const close = document.getElementById('terminal-overlay-close');
+    const windows = document.querySelectorAll('#window');
+    let maxZ = 100;
 
-  document.addEventListener('keydown', function(event) {
-    if (event.key === "j") {
-      window.scrollBy(0, 200);
-    }
+    windows.forEach(win => {
+        const frame = win.querySelector('#window_frame');
+        let offsetX, offsetY;
+        win.style.zIndex = maxZ;
 
-    if (event.key === "k") {
-      window.scrollBy(0, -200);
-    }
+        frame.addEventListener('mousedown', (e) => {
+            maxZ++;
+            win.style.zIndex = maxZ;
 
-    if (event.ctrlKey && event.key === "/") {
-      overlay!.classList.toggle('open');
-      document.body.classList.toggle('overlay-open');
-      toggle!.blur();
-    }
-  });
+            e.preventDefault();
+            const rect = win.getBoundingClientRect();
+            offsetX = e.clientX - rect.left;
+            offsetY = e.clientY - rect.top;
+
+            function onMouseMove(e) {
+                win.style.left = e.clientX - offsetX + 'px';
+                win.style.top  = e.clientY - offsetY + 'px';
+                win.style.transform = 'none';
+            }
+
+            function onMouseUp() {
+                document.removeEventListener('mousemove', onMouseMove);
+                frame.style.cursor = 'grab';
+            }
+
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp, { once: true });
+
+            frame.style.cursor = 'grabbing';
+        });
+    });
 </script>

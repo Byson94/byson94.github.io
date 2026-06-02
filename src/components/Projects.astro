@@ -1,4 +1,6 @@
 ---
+import WindowFrame from './WindowFrame.astro';
+
 const projects = [
   {
     name: "Ewwii",
@@ -51,16 +53,19 @@ const projects = [
 ];
 ---
 
-<div class="projects-grid">
-  {projects.map(project => (
-    <a href={project.href} target="_blank" rel="noopener noreferrer" class="project-tile">
-      <p class="project-name">{project.name}</p>
-      <p class="project-desc">{project.description}</p>
-      <div class="project-tags">
-        {project.tags.map(tag => (
-          <span class="project-tag">{tag}</span>
+<div class="window projects-win" id="window" style="width: 700px; height: 400px;">
+    <WindowFrame navItem="projects-win" />
+    <div class="projects-grid content-area">
+        {projects.map(project => (
+        <a href={project.href} target="_blank" rel="noopener noreferrer" class="project-tile">
+            <p class="project-name">{project.name}</p>
+            <p class="project-desc">{project.description}</p>
+            <div class="project-tags">
+                {project.tags.map(tag => (
+                <span class="project-tag">{tag}</span>
+                ))}
+            </div>
+        </a>
         ))}
-      </div>
-    </a>
-  ))}
+    </div>
 </div>

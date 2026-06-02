@@ -2,12 +2,13 @@
 interface Props {
     disableClose: boolean;
     navItem: string;
+    label: string;
 }
 
-const { disableClose = false, navItem } = Astro.props;
+const { disableClose = false, navItem, label } = Astro.props;
 ---
 
-<div id="window_frame">
+<div id="window_frame" class="relative">
     <div class="flex items-center gap-1.5 px-3 h-full">
         <button 
             data-target={navItem} 
@@ -16,6 +17,10 @@ const { disableClose = false, navItem } = Astro.props;
         <button class="w-3 h-3 rounded-full bg-[#febc2e] opacity-30"></button>
         <button class="w-3 h-3 rounded-full bg-[#28c840] opacity-30"></button>
     </div>
+
+    <p class="absolute inset-0 flex items-center justify-center pointer-events-none text-sm font-medium">
+        {label}
+    </p>
 </div>
 
 <script>

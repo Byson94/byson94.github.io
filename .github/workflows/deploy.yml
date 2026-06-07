@@ -20,10 +20,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 23
+          node-version: 26
+
+      - name: Install pnpm
+        run: curl -fsSL https://get.pnpm.io/install.sh | sh -
 
       - name: Install dependencies
-        run: pnpm ci
+        run: pnpm install
 
       - name: Build site
         run: pnpm run build

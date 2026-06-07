@@ -2,10 +2,92 @@
 import Layout from '../layouts/Layout.astro'
 import CenteredLayout from '../layouts/CenteredLayout.astro'
 import NavBar from '../components/NavBar.astro'
+import Box from '../components/Box.astro'
+
+const projects = [
+  {
+    name: "Ewwii",
+    description: "A fork of eww rewritten to be more powerful, performant, flexible, and extensible.",
+    tags: ["Rust", "Wayland", "Gtk4"],
+    href: "https://github.com/Ewwii-sh/ewwii",
+  },
+  {
+    name: "Nbcl",
+    description: "A general purpose embedded configuration language with scripting capabilities for Rust ecosystem.",
+    tags: ["Rust"],
+    href: "https://github.com/NBCL-Lang",
+  },
+  {
+    name: "Theom",
+    description: "A lightweight desktop environment based on i3wm for AxOS.",
+    tags: ["Shell", "X11"],
+    href: "https://github.com/AxOS-Project/Theom",
+  },
+  {
+    name: "Eiipm",
+    description: "A simple and minimal package manager for ewwii.",
+    tags: ["Rust", "Git"],
+    href: "https://github.com/Ewwii-sh/eiipm",
+  },
+  {
+    name: "rhai_trace",
+    description: "A rust library made to improve errors that rhai throws.",
+    tags: ["Rust"],
+    href: "https://github.com/Byson94/rhai_trace",
+  },
+  {
+    name: "rusty-exec",
+    description: "A rust program for prototyping with rust quickly, locally, offline.",
+    tags: ["Rust"],
+    href: "https://github.com/Byson94/rusty-exec",
+  },
+  {
+    name: "soshell",
+    description: "A simple C++ based program for opening and calling exposed symbols in shared object files.",
+    tags: ["C++"],
+    href: "https://github.com/Byson94/soshell",
+  },
+  {
+    name: "Xfsrtray",
+    description: "A customizable system tray for Linux X11. Its meant to be toggled and is smooth an efficient in that matter compared to other system trays.",
+    tags: ["Rust"],
+    href: "https://github.com/Byson94/xfsrtray",
+  },
+  {
+    name: "GitClone",
+    description: "An experimental rewrite of core git functions in nodejs for understanding the internals of git.",
+    tags: ["NodeJS"],
+    href: "https://github.com/Byson94/gitclone",
+  },
+  {
+    name: "Biszbo",
+    description: "An experimental chatapp written in react with MongoDB for message storing and Supabase for authentication.",
+    tags: ["React", "MongoDB", "Supabase"],
+    href: "https://github.com/Byson94/Biszbo",
+  },
+];
 ---
 
 <Layout>
     <CenteredLayout>
         <NavBar />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            {projects.map(project => {
+                return (
+                    <Box>
+                        <a href={project.href} class="flex flex-col gap-2">
+                            <h2 class="text-2xl font-bold">{project.name}</h2>
+                            <div class="flex flex-row gap-2 flex-wrap">
+                                {project.tags.map(tag => (
+                                    <span class="text-xs px-2 py-1 rounded-full opacity-70" style="background: var(--accent)">{tag}</span>
+                                ))}
+                            </div>
+                            <p class="opacity-80">{project.description}</p>
+                        </a>
+                    </Box>
+                )
+            })}
+        </div>
     </CenteredLayout>
 </Layout>

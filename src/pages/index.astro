@@ -1,130 +1,59 @@
 ---
-// Main
-import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
-import Footer from "../components/Footer.astro";
+import Layout from '../layouts/Layout.astro'
+import CenteredLayout from '../layouts/CenteredLayout.astro'
+import NavBar from '../components/NavBar.astro'
+import Box from '../components/Box.astro'
+import { Content } from '../content/about.md'
 
-// Content
-import About from "../components/About.astro";
-import Skills from "../components/Skills.astro";
-import Projects from "../components/Projects.astro";
-import Terminal from "../components/Terminal.astro";
+import { Icon } from 'astro-icon/components'
 ---
 
-<Layout title="Home">
-    <Hero />
-    <About /> 
-    <Skills />
-    <Projects />
-
-    <canvas id="matrix"></canvas>
+<Layout>
+    <CenteredLayout>
+        <NavBar />
+        <Box>
+            <div>
+                <h1 class="text-2xl pb-4 text-[var(--text-highlight)] bold">Byson94</h1>
+            </div>
+            <div class="flex flex-row items-start">
+                <div class="flex flex-col gap-4" id="content-box">
+                    <Content />
+                </div>
+                <div class="flex flex-col items-center gap-4 pb-10">
+                    <div class="w-64 h-64 rounded-xl overflow-hidden flex-shrink-0">
+                        <img src="https://avatars.githubusercontent.com/u/171326211?v=4" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="flex flex-row gap-6 text-white social-icons">
+                        <a href="https://x.com/byson94" class="hover:text-primary transition-colors" >
+                            <Icon name="simple-icons:x" size={24} />
+                        </a>
+                        <a href="https://www.instagram.com/bysoon94/" class="hover:text-primary transition-colors">
+                            <Icon name="simple-icons:instagram" size={24} />
+                        </a>
+                        <a href="https://www.reddit.com/user/Byson94_dev/" class="hover:text-primary transition-colors">
+                            <Icon name="simple-icons:reddit" size={24} />
+                        </a>
+                        <a href="https://github.com/Byson94" class="hover:text-primary transition-colors">
+                            <Icon name="simple-icons:github" size={24} />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </Box>
+    </CenteredLayout>
 </Layout>
 
 <style is:global>
-    body, html { margin: 0; padding: 0; overflow: hidden; background: black; }
-    canvas { display: block; }
+  [data-theme="dark"] .social-icons {
+    color: white;
+  }
+
+  [data-theme="light"] .social-icons {
+    color: black;
+  }
+
+  #content-box a {
+    color: var(--link);
+    text-decoration: underline;
+  }
 </style>
-
-<script>
-    const windows = document.querySelectorAll('#window');
-    let maxZ = 100;
-
-    windows.forEach(win => {
-        const frame = win.querySelector('#window_frame');
-        let offsetX, offsetY;
-        win.style.zIndex = maxZ;
-
-        frame.addEventListener('mousedown', (e) => {
-            maxZ++;
-            win.style.zIndex = maxZ;
-
-            e.preventDefault();
-            const rect = win.getBoundingClientRect();
-            offsetX = e.clientX - rect.left;
-            offsetY = e.clientY - rect.top;
-
-            function onMouseMove(e) {
-                win.style.left = e.clientX - offsetX + 'px';
-                win.style.top  = e.clientY - offsetY + 'px';
-                win.style.transform = 'none';
-            }
-
-            function onMouseUp() {
-                document.removeEventListener('mousemove', onMouseMove);
-                frame.style.cursor = 'grab';
-            }
-
-            document.addEventListener('mousemove', onMouseMove);
-            document.addEventListener('mouseup', onMouseUp, { once: true });
-
-            frame.style.cursor = 'grabbing';
-        });
-    });
-
-    const buttons = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('.content-section');
-
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            const targetClass = button.getAttribute('data-target');
-            const targetSection = document.querySelector(`.${targetClass}`);
-
-            const isAlreadyVisible = targetSection && targetSection.classList.contains('active');
-            targetSection.classList.remove('active');
-
-            if (targetSection && !isAlreadyVisible) {
-                targetSection.classList.add('active');
-                maxZ++;
-                targetSection.style.zIndex = maxZ;
-            }
-        });
-    });
-</script>
-
-<script>
-    const canvas = document.getElementById('matrix');
-    const ctx = canvas.getContext('2d');
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    window.onresize = function() {
-        canvas.style.width = window.innerWidth + 'px';
-        canvas.style.height = window.innerHeight + 'px';
-    };
-
-    const chars = "0123456789ABCDEF@#$%&";
-    const fontSize = 16;
-    let columns = canvas.width / fontSize;
-    let drops = [];
-
-    for (let x = 0; x < columns; x++) {
-        drops[x] = Math.floor(Math.random() * -25);
-    }
-
-    let lastTime = 0;
-    function draw(timestamp) {
-        if (timestamp - lastTime > 100) {
-            lastTime = timestamp;
-
-            ctx.fillStyle = 'rgba(26, 27, 38, 0.05)'; 
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = '#9ece6a'; 
-            ctx.font = fontSize + 'px monospace';
-
-            for (let i = 0; i < drops.length; i++) {
-                const text = chars.charAt(Math.floor(Math.random() * chars.length));
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-        }
-        requestAnimationFrame(draw);
-    }
-    
-    requestAnimationFrame(draw);
-</script>

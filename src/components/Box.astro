@@ -1,0 +1,7 @@
+---
+const { add_class }  = Astro.props;
+---
+
+<div class={ "border p-2 " + add_class }>
+    <slot/>
+</div>

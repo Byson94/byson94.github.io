@@ -1,0 +1,15 @@
+{
+  "name": "psh",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "psh_bg.wasm",
+    "psh.js",
+    "psh.d.ts"
+  ],
+  "main": "psh.js",
+  "types": "psh.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

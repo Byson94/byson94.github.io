@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Playwrite+GB+J:ital,wght@0,100..400;1,100..400&family=Roboto+Slab:wght@100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.ico"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v6.4.4"><title>Byson94</title><link rel="stylesheet" href="/_astro/Layout.r_6gLa20.css"></head> <body>  <div class="terminal" id="terminal"></div>  </body></html> <script type="module">
+    import init, { Psh } from '/psh/pkg/psh.js';
+
+    async function runWasm() {
+        try {
+            await init();
+
+            const psh = new Psh();
+            globalThis.pshell = psh;
+        } catch (error) {
+            console.error("Error executing WebAssembly:", error);
+        }
+    }
+
+    runWasm();
+
+    let term = document.getElementById("terminal");
+    term.style.width = "100%";
+    term.style.height = "100vh";
+    term.style.cursor = "text";
+
+    function createInput() {
+        let prefix = document.createElement("p");
+        prefix.innerText = "$ ";
+        prefix.style.pointerEvents = "none";
+        prefix.style.userSelect = "none";
+        prefix.style.padding = "2px";
+        prefix.style.fontSize = "22px";
+
+        let input = document.createElement("input");
+        input.classList.add("current-input");
+        input.style.width = "100%";
+        input.style.outline = "none";
+        input.style.border = "none";
+        input.style.fontSize = "16px";
+
+        let container = document.createElement("div");
+        let classes = "flex flex-row";
+
+        classes.split(" ").forEach((c) => {
+            container.classList.add(c);
+        });
+        container.appendChild(prefix);
+        container.appendChild(input);
+
+        return container;
+    }
+
+    function appendResult(result, doc) {
+        let result_element = document.createElement("p");
+        result_element.innerText = result;
+
+        doc.appendChild(result_element);
+    }
+
+    document.addEventListener("click", function () {
+        document.querySelector(".current-input")?.focus();
+    });
+
+    let inputBox = createInput();
+    term.appendChild(inputBox);
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+            let input = document.querySelector(".current-input");
+            input.classList.remove("current-input");
+            input.style.pointerEvents = "none";
+            input.readOnly = true;
+
+            let result = pshell.execute(input.value);
+            appendResult(result, term);
+
+            if (result === "CLEAR") {
+                term.replaceChildren();
+            }
+
+            let inputBox = createInput();
+            term.appendChild(inputBox);
+
+            let new_input = document.querySelector(".current-input");
+            new_input.focus();
+        } else if (e.ctrlKey && e.code === "KeyC") {
+            e.preventDefault();
+
+            let input = document.querySelector(".current-input");
+            input.classList.remove("current-input");
+            input.style.pointerEvents = "none";
+            input.readOnly = true;
+
+            let inputBox = createInput();
+            term.appendChild(inputBox);
+
+            let new_input = document.querySelector(".current-input");
+            new_input.focus();
+        }
+    });
+</script>

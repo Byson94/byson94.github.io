@@ -23,7 +23,7 @@ import CenteredLayout from '../layouts/CenteredLayout.astro'
         }
     }
 
-    runWasm();
+    await runWasm();
 
     let term = document.getElementById("terminal");
     term.style.width = "100%";
@@ -64,6 +64,28 @@ import CenteredLayout from '../layouts/CenteredLayout.astro'
         doc.appendChild(result_element);
     }
 
+    function submitCommand() {
+        let input = document.querySelector(".current-input");
+        if (!input) return;
+
+        input.classList.remove("current-input");
+        input.style.pointerEvents = "none";
+        input.readOnly = true;
+
+        let result = pshell.execute(input.value);
+        appendResult(result, term);
+
+        if (result === "CLEAR") {
+            term.replaceChildren();
+        }
+
+        let inputBox = createInput();
+        term.appendChild(inputBox);
+
+        let new_input = document.querySelector(".current-input");
+        if (new_input) new_input.focus();
+    }
+
     document.addEventListener("click", function () {
         document.querySelector(".current-input")?.focus();
     });
@@ -71,25 +93,13 @@ import CenteredLayout from '../layouts/CenteredLayout.astro'
     let inputBox = createInput();
     term.appendChild(inputBox);
 
+    let input = document.querySelector(".current-input");
+    input.value = "help";
+    submitCommand();
+
     document.addEventListener("keydown", function (e) {
         if (e.key === "Enter") {
-            let input = document.querySelector(".current-input");
-            input.classList.remove("current-input");
-            input.style.pointerEvents = "none";
-            input.readOnly = true;
-
-            let result = pshell.execute(input.value);
-            appendResult(result, term);
-
-            if (result === "CLEAR") {
-                term.replaceChildren();
-            }
-
-            let inputBox = createInput();
-            term.appendChild(inputBox);
-
-            let new_input = document.querySelector(".current-input");
-            new_input.focus();
+            submitCommand();
         } else if (e.ctrlKey && e.code === "KeyC") {
             e.preventDefault();
 

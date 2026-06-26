@@ -27,4 +27,32 @@
         localStorage.setItem('theme', "dark")
       }
     });
-</script> <div class="grid gap-3"> <div class="border p-2 undefined">  <a href="/blog/switching-to-go" class="flex flex-col gap-2"> <div class="flex flex-row justify-between items-center"> <h2 class="text-2xl font-bold">Switching to go for concurrency</h2> <span class="text-sm opacity-60">June 26, 2026</span> </div> <p class="opacity-80">Go concurrency is just way easier.</p> </a>  </div><div class="border p-2 undefined">  <a href="/blog/terrible-language-sites" class="flex flex-col gap-2"> <div class="flex flex-row justify-between items-center"> <h2 class="text-2xl font-bold">Websites of Programming Languages</h2> <span class="text-sm opacity-60">June 26, 2026</span> </div> <p class="opacity-80">The website of all programming languages suck!</p> </a>  </div><div class="border p-2 undefined">  <a href="/blog/my-first-post" class="flex flex-col gap-2"> <div class="flex flex-row justify-between items-center"> <h2 class="text-2xl font-bold">My First Post</h2> <span class="text-sm opacity-60">June 7, 2026</span> </div> <p class="opacity-80">Beep Boop! The site is redesigned!</p> </a>  </div> </div>  </div>  </body></html>
+</script> <div class="prose dark:prose-invert max-w-none pt-10"> <div class="border p-2 undefined">  <h1 class="pb-0 mb-0">Switching to go for concurrency</h1> <p class="italic">June 26, 2026 · 2 minute read</p> <hr> <p>I recently have been learning <a href="https://go.dev">Golang</a> and I am starting to like it. Though I am experiencing
+a bit of friction as I come from a Rust/C background, the concurrency in go is just way easier to work with in general.</p>
+<p>In rust, you would need to bring in the full tokio stack just to get a basic concurrent application going,
+then wait a long time for the compiler to compile everything. There is no such issues like this in go,
+just use the <code>go</code> keyword and boom, you have concurrency. And the compliation takes less than a second.</p>
+<p>I find the channels in go much more convenient to work with too. Unlike rust’s mpsc, go channels are like
+black magic. It just works and you don’t know why.</p>
+<p><strong>Concurrency in Go:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="go"><code><span class="line"><span style="color:#E1E4E8">ch </span><span style="color:#F97583">:=</span><span style="color:#B392F0"> make</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">chan</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">bool</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">go</span><span style="color:#F97583"> func</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    defer</span><span style="color:#E1E4E8"> fmt.</span><span style="color:#B392F0">Println</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Awesome"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">    ch </span><span style="color:#F97583">&#x3C;-</span><span style="color:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#E1E4E8">}()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">&#x3C;-</span><span style="color:#E1E4E8">ch</span></span></code></pre>
+<p>One may argue that rust is faster and safer than go, and I understand. But sacrificing a little speed
+for fast iteration + easy concurrency is a sacrifice I am willing to take. Sorry fellow rustaceans.</p>
+<p>That said, I also want to mention that for everything else other than concurrency, I feel that Rust is just
+superior. Here are the reasons:</p>
+<ul>
+<li><code>Option&#x3C;T></code> and <code>Result&#x3C;T, E></code> are superior to <code>if err != null</code>.</li>
+<li>Clap with <code>derive</code> feature (for CLI’s).</li>
+<li>Better for systems programming.</li>
+<li>Better WASM support.</li>
+</ul>
+<p>And most importantly, <strong>rust is my home turf</strong>. Go is mostly focused on cloud too, which is an area
+in which I’ve never worked, wish to never work on (as of now). Right now, I am still exploring Go
+and am yet to make an actual project in it, which I hopefully will do soon (the idea must come).</p>  </div> </div>  </div>  </body></html>

@@ -17,7 +17,7 @@ black magic. It just works and you don't know why.
 **Concurrency in Go:**
 
 ```go
-ch := make(chan, bool)
+ch := make(chan bool)
 
 go func() {
     defer fmt.Println("Awesome")

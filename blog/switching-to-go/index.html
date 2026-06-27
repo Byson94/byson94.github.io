@@ -35,7 +35,7 @@ just use the <code>go</code> keyword and boom, you have concurrency. And the com
 <p>I find the channels in go much more convenient to work with too. Unlike rust’s mpsc, go channels are like
 black magic. It just works and you don’t know why.</p>
 <p><strong>Concurrency in Go:</strong></p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="go"><code><span class="line"><span style="color:#E1E4E8">ch </span><span style="color:#F97583">:=</span><span style="color:#B392F0"> make</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">chan</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">bool</span><span style="color:#E1E4E8">)</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="go"><code><span class="line"><span style="color:#E1E4E8">ch </span><span style="color:#F97583">:=</span><span style="color:#B392F0"> make</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">chan</span><span style="color:#F97583"> bool</span><span style="color:#E1E4E8">)</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">go</span><span style="color:#F97583"> func</span><span style="color:#E1E4E8">() {</span></span>
 <span class="line"><span style="color:#F97583">    defer</span><span style="color:#E1E4E8"> fmt.</span><span style="color:#B392F0">Println</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Awesome"</span><span style="color:#E1E4E8">)</span></span>

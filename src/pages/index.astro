@@ -4,8 +4,6 @@ import CenteredLayout from '../layouts/CenteredLayout.astro'
 import NavBar from '../components/NavBar.astro'
 import Box from '../components/Box.astro'
 import { Content } from '../content/about.md'
-
-import { Icon } from 'astro-icon/components'
 ---
 
 <Layout>
@@ -25,16 +23,16 @@ import { Icon } from 'astro-icon/components'
                     </div>
                     <div class="flex flex-row gap-6 text-white social-icons">
                         <a href="https://x.com/byson94" class="hover:text-primary transition-colors" >
-                            <Icon name="simple-icons:x" size={24} />
+                            <span class="icon-[simple-icons--x] text-2xl"></span>
                         </a>
                         <a href="https://www.instagram.com/bysoon94/" class="hover:text-primary transition-colors">
-                            <Icon name="simple-icons:instagram" size={24} />
+                            <span class="icon-[simple-icons--instagram] text-2xl"></span>
                         </a>
                         <a href="https://www.reddit.com/user/Byson94_dev/" class="hover:text-primary transition-colors">
-                            <Icon name="simple-icons:reddit" size={24} />
+                            <span class="icon-[simple-icons--reddit] text-2xl"></span>
                         </a>
                         <a href="https://github.com/Byson94" class="hover:text-primary transition-colors">
-                            <Icon name="simple-icons:github" size={24} />
+                            <span class="icon-[simple-icons--github] text-2xl"></span>
                         </a>
                     </div>
                 </div>

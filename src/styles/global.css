@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@plugin "@iconify/tailwind4";
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 /* Dark palette: https://coolors.co/palette/0a0908-22333b-eae0d5-c6ac8f-5e503f */

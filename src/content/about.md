@@ -1,5 +1,10 @@
-Hi, I'm Nilay. I'm a **backend developer** and an **open-source contributor** who enjoy working on projects that solves real problems. My main language is **Rust**, but I always aim to pick the best language I know, that suits a specific project well.
+Hi, I'm Nilay. I'm a **backend/systems developer** and an **open-source contributor**. My main language is **Rust**, but I am 
+familiar with other languages like C, Python, and TypeScript.
 
-My main project is called [ewwii](https://github.com/Ewwii-sh/ewwii), which is a rust based widget system for linux that I have been working on for the past year. 
+I currently am actively working on [ewwii](https://github.com/Ewwii-sh/ewwii), an extensible and flexible rust-based 
+widget system that is a total rewrite of the popular [elkowar/eww](https://github.com/elkowar/eww) widget system.
 
-Besides my passion of programming, I like playing chess, or learning something new. During my free time, when I am not working on my main project, I'll usually be working on my side projects, learning something, or contributing to [AxOS](https://github.com/AxOS-Project/), which is a pretty cool Arch-Based Linux Distribution.
+Besides programming, I enjoy playing chess, learning something new, or reading.
+
+If you like what I do and want to support me financially, then you can donate to me either on 
+[liberapay](https://liberapay.com/Byson94/) or [ko-fi](https://ko-fi.com/Byson94).

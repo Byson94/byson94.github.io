@@ -27,12 +27,14 @@
         localStorage.setItem('theme', "dark")
       }
     });
-</script> <div class="prose dark:prose-invert max-w-none pt-10"> <div class="border p-2 undefined">  <h1 class="pb-0 mb-0">Ideal Wayland Compositor</h1> <p class="italic">July 12, 2026 · 3 minute read</p> <hr> <p>Modern wayland compositors are monolithic in nature. They combine both the compositor and the window manager into one.
-But this does not leave room for extensibility. They have to receive constant updates from the maintainers just to
-satisfy the users with new content. But it does not have to be like that, the compositor and the window manager
+</script> <div class="prose dark:prose-invert max-w-none pt-10"> <div class="border p-2 undefined">  <h1 class="pb-0 mb-0">Ideal Wayland Compositor</h1> <p class="italic">July 12, 2026 · 3 minute read</p> <hr> <p>Modern wayland compositors are very monolithic in nature. They combine both the compositor and the window manager into one.
+And this does not leave any room for extensibility. But it does not have to be like that, the compositor and the window manager
 should be split, which will allow one compositor to have a vast ecosystem.</p>
-<p>River is the compositor that solves this problem of mine. But now that I know there is a solution to this problem,
-I want more. I want the compositor to be split even more. Heck, just build the core and leave everything else to plugins!</p>
+<p>River is the compositor that solves this problem. But why not go one step further? Why decouple only the window manager
+from the core? Why not go one step further and decouple the entire compositor? All compositors need constant updates
+to keep up with modern wayland protocols, or add new features to satisfy the users. And a highly decoupled compositor
+can just composite and let the comminity lead it however they want. And this my friend, is the ideal wayland compositor
+in my point of view.</p>
 <h2 id="the-proposal">The Proposal</h2>
 <p>After a lot of brainstorming, I came up with the exact thing that makes the compositor of my dreams.</p>
 <h3 id="fundamentals">Fundamentals</h3>

@@ -18,6 +18,8 @@
   --link: #394F70;
   --text: #22333B;
   --text-highlight: #0a0908;
+    --shiki-light-bg: #ffffff;
+  --shiki-light: #393a34;
 }
 
 ::selection {

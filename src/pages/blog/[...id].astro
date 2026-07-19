@@ -62,9 +62,9 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
         all: unset !important;
     }
 
-    .astro-code {
-        background-color: #1a1a17 !important;
-        padding: 1rem;
-        border-radius: 8px;
+    [data-theme='dark'] pre.astro-code,
+    [data-theme='dark'] pre.astro-code span {
+        background-color: var(--shiki-dark-bg) !important;
+        color: var(--shiki-dark) !important;
     }
 </style>

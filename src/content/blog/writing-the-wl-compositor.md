@@ -34,10 +34,10 @@ For those interested in the project, here are the links:
 Its only been a few days since I started writing it and I believe I made a fair amount of progress. The compositor
 can be loaded and can display cursor and windows too. 
 
-As of right now, it implements the `xdg-shell`, and `xdg-decoration` protocols.
+As of right now, it implements the `xdg-shell`, `xdg-decoration`, `viewporter`, `cursor-shape`, `gamma`, `idle-notify`,
+and `idle-inhibit` protocols, along with a partial `layer-shell` implementaiton.
 
-With this much progress made, I now plan on extending the plugin API and adding support to more protocols like `layer_shell`,
-`gamma`, etc. And also work a little on the window manager API's and the window manager itself.
+I am now working on the window management system and on finishing the `layer-shell` implementation.
 
 ## Limitations
 
@@ -59,11 +59,25 @@ I am actively trying to avoid. And I cant pass the raw wlroots data around becau
 I cant expose the compositor server and let the plugins figure it out on their own too because of the safety
 reasons mentioned above.
 
+### Lack of room to grow
+
+If I don't expose the compositor server to the plugins, then everyting would have to run through hooks.
+This isn't ideal because not every case can be covered through hooks. If I did expose the compositor server
+to the plugins then I will suffer from the safety issues mentioned right above!
+
+Let me give you a more precise example. Take a window manager like niri for example. When you 
+try to move a window through inputs (using something like `Super+Click`), you would see that the compositor
+would highlight where the window will stick to when you leave it. But this thing isn't really easy
+to implement in buzzay just because of the sole reason that it should leave the work to plugins.
+
+This is an issue exclusive to this architecture. It is neither possible to cover every scenario nor possible
+to let the plugins have full access to the compositor server while ensuring fully safety. Trying to implement
+a safe API that covers most scenarios is time consuming and has a chance of making the compositor end up
+like X11.
+
 ## Solutions & Vision
 
-To solve all the problems, I decided to make the plugin API an abstraction that allows plugins to hook into existing
-compositor functions. Although this approach makes it so that plugins **cannot** register custom protocols into the
-compositor, it is a necessary sacrifice I have to sadly make.
-
-So it is certain that I will be working on this project for a while as it is peaking my curiosity. So until then,
-peace!
+Although I am still to find a cleaner solution, I decided to make the plugin API an abstraction that allows plugins to hook into existing
+compositor functions. Although this severely reduces the things a plugin can do, it is a necessary sacrifice I am forced to make.
+The compositor **has to be opinionated**. Plugins no longer can just do "anything". I will now be building the plugin API to be more of a 
+configuration system rather than an extension system. This is the only way in which both the compositor and the plugin can coexist safely.

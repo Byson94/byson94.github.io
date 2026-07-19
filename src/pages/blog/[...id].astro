@@ -40,3 +40,31 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
         </div>
     </CenteredLayout>
 </Layout>
+
+<style is:global>
+    .prose code {
+        background-color: #232221;
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.2rem;
+        font-weight: normal;
+    }
+
+    [data-theme='light'] .prose code {
+        background-color: #d3cac0;
+    }
+
+    .prose code::before,
+    .prose code::after {
+        content: "";
+    }
+
+    .prose pre code {
+        all: unset !important;
+    }
+
+    .astro-code {
+        background-color: #1a1a17 !important;
+        padding: 1rem;
+        border-radius: 8px;
+    }
+</style>

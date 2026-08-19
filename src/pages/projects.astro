@@ -4,12 +4,15 @@ import CenteredLayout from '../layouts/CenteredLayout.astro'
 import NavBar from '../components/NavBar.astro'
 import Box from '../components/Box.astro'
 
+import ewwiiImg from '../assets/ewwii.webp';
+
 const projects = [
   {
     name: "Ewwii",
     description: "A fork of eww rewritten to be more powerful, performant, flexible, and extensible.",
     tags: ["Rust", "Wayland", "Gtk4"],
     href: "https://github.com/Ewwii-sh/ewwii",
+    socialPreviewImg: ewwiiImg.src
   },
   {
     name: "Buzzay",
@@ -73,33 +76,17 @@ const projects = [
   },
 ];
 
-const projectsWithBanners = await Promise.all(
-projects.map(async (project) => {
-    const repoPath = project.href.replace("https://github.com/", "");
-    const fallbackImg = `https://opengraph.githubassets.com/1/${repoPath}`;
-    
-    if (!repoPath.includes("/")) {
-      return { ...project, socialPreviewImg: fallbackImg };
-    }
+const projectsWithBanners = projects.map((project) => {
+  if (project.socialPreviewImg) {
+    return project;
+  }
 
-    try {
-      const res = await fetch(project.href, {
-        headers: { "User-Agent": "Astro-App" }
-      });
-      if (res.ok) {
-        const html = await res.text();
-        const match = html.match(/<meta\s+property="og:image"\s+content="([^"]+)"/i);
-        if (match && match[1]) {
-          return { ...project, socialPreviewImg: match[1] };
-        }
-      }
-    } catch (e) {
-      console.error(`Failed to fetch og:image for ${project.href}`, e);
-    }
-
-    return { ...project, socialPreviewImg: fallbackImg };
-  })
-);
+  const repoPath = project.href.replace("https://github.com/", "");
+  return {
+    ...project,
+    socialPreviewImg: `https://opengraph.githubassets.com/1/${repoPath}`,
+  };
+});
 ---
 
 <Layout>
@@ -112,6 +99,8 @@ projects.map(async (project) => {
                         <img 
                             src={project.socialPreviewImg} 
                             alt={project.name} 
+                            loading="lazy"
+                            decoding="async"
                             class="w-full aspect-[1200/630] object-cover rounded bg-neutral-800" 
                         />
                         <h2 class="text-2xl font-bold">{project.name}</h2>

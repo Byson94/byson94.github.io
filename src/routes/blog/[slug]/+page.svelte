@@ -21,9 +21,10 @@
 <Container>
 	<article class="prose w-full max-w-none rounded-lg p-2 outline-1 outline-light dark:prose-invert">
 		{#if data.meta}
-			<h1 class="mb-5!">{data.meta.title}</h1>
+			<h1 class="mb-0!">{data.meta.title}</h1>
+            <p>{data.meta.description}</p>
 
-			<div class="text-fg-color/70 mb-4 flex items-center space-x-2 text-sm">
+			<div class="text-current/70 mb-4 flex items-center space-x-2 text-sm">
 				{#if data.meta.date}
 					<time datetime={data.meta.date}>{formatDate(data.meta.date)}</time>
 				{/if}

@@ -45,7 +45,7 @@
 <svelte:window bind:scrollY={y} />
 
 <div
-	class="bg-canvas/90 sticky top-2 z-50 m-1 md:m-5 grid grid-cols-[auto_1fr_auto] md:grid-cols-3 items-center rounded-lg p-2 outline-1 outline-light backdrop-blur-md select-none transition-transform duration-300 {isHidden ? '-translate-y-24' : 'translate-y-0'}"
+	class="bg-canvas/90 sticky top-2 z-50 m-1 md:m-5 grid grid-cols-[auto_1fr_auto] md:grid-cols-3 items-center rounded-lg p-2 outline-1 outline-light backdrop-blur-md select-none transition-transform duration-300 md:translate-y-0 {isHidden ? '-translate-y-24' : 'translate-y-0'}"
 >
 	<a href="/" class="justify-self-start font-bold text-black no-underline dark:text-white"
 		>Nilay Byju</a

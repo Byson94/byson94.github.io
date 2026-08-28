@@ -1,4 +1,4 @@
-import{H as e,W as t,_ as n,y as r}from"./Bp67M862.js";import"./xihTtKlq.js";var i=t({default:()=>u,metadata:()=>a}),a={title:`I might give up on rust.`,date:`2026-08-05T00:00:00.000Z`,description:`Rust is starting to be too much for me.`},{title:o,date:s,description:c}=a,l=r(`<p>So, Rust is my main programming language. I’ve been using it for the last year and I enjoyed it a lot.
+import{K as e,W as t,x as n,y as r}from"./WWTSD2Qb.js";import"./xihTtKlq.js";var i=e({default:()=>u,metadata:()=>a}),a={title:`I might give up on rust.`,date:`2026-08-05T00:00:00.000Z`,description:`Rust is starting to be too much for me.`},{title:o,date:s,description:c}=a,l=n(`<p>So, Rust is my main programming language. I’ve been using it for the last year and I enjoyed it a lot.
 But I’ve been facing a few issues with it lately and I don’t know if I will continue with the language any much longer.</p> <h2>The Story</h2> <p>Let me start with the root of my problems and what made me go against rust. I’ve been exploring
 multiple projects recently and most of them are low-level. I chose C as the language for these
 projects as it was easily the best low-level language out there. This is where I first
@@ -15,4 +15,4 @@ and segmentation faults. But the slow compiler and lsp is bugging me a lot. As m
 the memory safety, syntax, and community of rust, I hate these two issues just as much.</p> <h2>Solution</h2> <p>I don’t see any clear solution. Although many languages have fast compiliations and LSP, no language
 comes even close to the safety and convenience of rust. So it is very unclear whether I’ll continue
 with the language or not. Perhaps I’ll make a new post about what I ended up doing. Maybe not
-if I continue with rust.</p>`,1);function u(t){var r=l();e(14),n(t,r)}export{i as t};
+if I continue with rust.</p>`,1);function u(e){var n=l();t(14),r(e,n)}export{i as t};

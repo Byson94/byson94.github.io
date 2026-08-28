@@ -1,0 +1,5 @@
+import{A as e,F as t,P as n,W as r,l as i,x as a,y as o}from"./WWTSD2Qb.js";import"./xihTtKlq.js";import{t as s}from"./CsrTtkTw.js";var c={title:`Buzzay`},{title:l}=c,u=a(`<p>Buzzay is a wayland compositor built in C, with the help of the wlroots library. It focuses on bringing
+extensibility, stability, and all the eye candy in one single compositor. I started this project after the
+frequent issues in <a href="https://github.com/AxOS-project/Sleex" rel="nofollow">AxOS-Project/Sleex</a>, brought by the constant breaking
+changes in <a href="https://hypr.land" rel="nofollow">Hyprland</a>.</p> <p>The project is still <strong>very young</strong> and I am curoius to see what it would turn out. I am working on it when I get the
+time, but I am mostly occupied by my researches and other projects.</p> <img alt="Buzzay"/> <p><strong>Links:</strong></p> <p><a href="https://github.com/byson94/buzzay" rel="nofollow">Github</a> | <a href="https://byson94.is-a.dev/buzzay" rel="nofollow">Website</a></p>`,1);function d(a){var c=u(),l=t(n(c),4);r(4),e(()=>i(l,`src`,s)),o(a,c)}export{d as default,c as metadata};

@@ -1,4 +1,4 @@
-import{H as e,M as t,N as n,U as r,W as i,_ as a,f as o,y as s}from"./Bp67M862.js";import"./xihTtKlq.js";var c=i({default:()=>m,metadata:()=>l}),l={title:`Ideal Wayland Compositor`,date:`2026-07-12T00:00:00.000Z`,description:`The ideal wayland compositor from my dreams.`},{title:u,date:d,description:f}=l,p=s(`<p>Modern wayland compositors are very monolithic in nature. They combine both the compositor and the window manager into one.
+import{F as e,G as t,K as n,P as r,W as i,m as a,x as o,y as s}from"./WWTSD2Qb.js";import"./xihTtKlq.js";var c=n({default:()=>m,metadata:()=>l}),l={title:`Ideal Wayland Compositor`,date:`2026-07-12T00:00:00.000Z`,description:`The ideal wayland compositor from my dreams.`},{title:u,date:d,description:f}=l,p=o(`<p>Modern wayland compositors are very monolithic in nature. They combine both the compositor and the window manager into one.
 And this does not leave any room for extensibility. But it does not have to be like that, the compositor and the window manager
 should be split, which will allow one compositor to have a vast ecosystem.</p> <p>River is the compositor that solves this problem. But why not go one step further? Why decouple only the window manager
 from the core? Why not go one step further and decouple the entire compositor? All compositors need constant updates
@@ -11,7 +11,7 @@ The plugins will then use the <code>comp.h</code> file to build a plugin and com
 the compositor can load and execute freely.</p> <p>The benifit of having the compositor written in pure C is this, the plugin system. C ABI is completely stable.
 Infact, C is the lingua franca language that every other languages use to communicate with each other. Because of this,
 the compositor can just pass the whole whatever thing it has over to the plugin and just <strong>let it do whatever it wants.</strong></p> <h2>Conclusion</h2> <p>A plugin system is the solution to all problems. It lets the users extend something beyond what it was
-originally built for. An architecture like that is pretty hard to beat under the ideal circumstances.</p>`,1);function m(i){var s=p(),c=n(t(s),18);o(c,()=>`<code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+originally built for. An architecture like that is pretty hard to beat under the ideal circumstances.</p>`,1);function m(n){var o=p(),c=e(r(o),18);a(c,()=>`<code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
 
 <span class="token comment"># Note: 'comp' stands for Compositor Name</span>
 
@@ -21,4 +21,4 @@ comp <span class="token parameter variable">--load</span> input
 
 <span class="token comment"># Input handling</span>
 comp <span class="token parameter variable">--msg</span> input <span class="token string">"Super+Return"</span> <span class="token string">"kitty"</span>
-comp <span class="token parameter variable">--msg</span> input <span class="token string">"Super+Q"</span> <span class="token string">"comp --msg window-mgr close_active"</span></code>`,!0),r(c),e(12),a(i,s)}export{c as t};
+comp <span class="token parameter variable">--msg</span> input <span class="token string">"Super+Q"</span> <span class="token string">"comp --msg window-mgr close_active"</span></code>`,!0),t(c),i(12),s(n,o)}export{c as t};

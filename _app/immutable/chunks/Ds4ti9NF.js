@@ -2,7 +2,6 @@ import{H as e,_ as t,y as n}from"./Bp67M862.js";import"./xihTtKlq.js";var r={tit
 I had noticied a few core issues with other widget system’s that made me feel like I must create a solution myself.
 Eww was one of the lightest widget systems that you could do a lot of stuff with. But it was limiting compared to
 its modern alternatives. I wanted eww to be as capable as its modern alternatives while staying lightweight.
-And… that’s how ewwii is born.</p> <p>I’ve been working ewwii since and have added a lot of new and unique features. Ewwii is also the project that
-led to me making other side-projects that will end up being used in ewwii. It is one of my best creations and
+And… that’s how ewwii was born.</p> <p>I’ve been working ewwii since and have added a lot of new and unique features. It is one of my best creations and
 I aim to improve it even more in the future. Mostly by introducing more plugin API’s and exposing abstractions
 for Linux services like wifi and battery.</p> <p><strong>Links:</strong></p> <p><a href="https://github.com/ewwii-sh/ewwii" rel="nofollow">Github</a> | <a href="https://ewwii-sh.github.io" rel="nofollow">Website</a> | <a href="https://ewwii-sh.github.io/docs" rel="nofollow">Documentation</a></p>`,1);function o(n){var r=a();e(10),t(n,r)}export{o as default,r as metadata};

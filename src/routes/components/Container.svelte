@@ -3,7 +3,7 @@
 </script>
 
 <div
-	class="text-fg-color dark:text-fg-color mx-auto my-[0.6em] prose w-full max-w-[70vw] break-words dark:prose-invert"
+	class="text-fg-color dark:text-fg-color mx-auto my-[0.6em] prose w-full max-w-[98vw] md:max-w-[70vw] break-words dark:prose-invert"
 >
 	{@render children()}
 </div>

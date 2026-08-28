@@ -2,6 +2,9 @@
 	import { page } from '$app/state';
 
 	let checkboxEl = $state(null);
+    let y = $state(0);
+	let lastY = $state(0);
+	let isHidden = $state(false);
 
 	function applyTheme(theme) {
 		const root = document.documentElement;
@@ -16,6 +19,13 @@
 	}
 
 	$effect(() => {
+        if (y > lastY && y > 60) {
+			isHidden = true;
+		} else if (y < lastY) {
+			isHidden = false;
+		}
+		lastY = y;
+
 		const saved = localStorage.getItem('theme') || 'dark';
 		applyTheme(saved);
 
@@ -32,27 +42,29 @@
 	}
 </script>
 
+<svelte:window bind:scrollY={y} />
+
 <div
-	class="bg-canvas/90 sticky top-2 z-50 m-5 grid grid-cols-3 items-center rounded-lg p-2 outline-1 outline-light backdrop-blur-md select-none"
+	class="bg-canvas/90 sticky top-2 z-50 m-1 md:m-5 grid grid-cols-[auto_1fr_auto] md:grid-cols-3 items-center rounded-lg p-2 outline-1 outline-light backdrop-blur-md select-none transition-transform duration-300 {isHidden ? '-translate-y-24' : 'translate-y-0'}"
 >
 	<a href="/" class="justify-self-start font-bold text-black no-underline dark:text-white"
 		>Nilay Byju</a
 	>
 
-	<div class="space-x-1 justify-self-center rounded-full bg-neutral-300/50 p-1 dark:bg-white/10">
+	<div class="inline-flex space-x-1 justify-self-end md:justify-self-center mr-1 md:mr-0 rounded-full bg-neutral-300/50 p-1 dark:bg-white/10">
 		<a
 			href="/"
-			class="rounded-full px-3 py-1 text-sm font-medium transition-colors hover:bg-neutral-300/80 dark:hover:bg-black/40"
+			class="rounded-full px-1 md:px-3 py-1 text-sm font-medium transition-colors hover:bg-neutral-300/80 dark:hover:bg-black/40"
 			>Home</a
 		>
 		<a
 			href="/projects/"
-			class="rounded-full px-3 py-1 text-sm font-medium transition-colors hover:bg-neutral-300/80 dark:hover:bg-black/40"
+			class="rounded-full px-1 md:px-3 py-1 text-sm font-medium transition-colors hover:bg-neutral-300/80 dark:hover:bg-black/40"
 			>Projects</a
 		>
 		<a
 			href="/blog/"
-			class="rounded-full px-3 py-1 text-sm font-medium transition-colors hover:bg-neutral-300/80 dark:hover:bg-black/40"
+			class="rounded-full px-1 md:px-3 py-1 text-sm font-medium transition-colors hover:bg-neutral-300/80 dark:hover:bg-black/40"
 			>Blog</a
 		>
 	</div>

@@ -1,0 +1,17 @@
+import{H as e,M as t,N as n,U as r,W as i,_ as a,f as o,y as s}from"./Bp67M862.js";import"./xihTtKlq.js";var c=i({default:()=>m,metadata:()=>l}),l={title:`Switching to go for concurrency`,date:`2026-06-26T00:00:00.000Z`,description:`Go concurrency is just way easier.`},{title:u,date:d,description:f}=l,p=s(`<p>I recently have been learning <a href="https://go.dev" rel="nofollow">Golang</a> and I am starting to like it. Though I am experiencing
+a bit of friction as I come from a Rust/C background, the concurrency in go is just way easier to work with in general.</p> <p>In rust, you would need to bring in the full tokio stack just to get a basic concurrent application going,
+then wait a long time for the compiler to compile everything. There is no such issues like this in go,
+just use the <code>go</code> keyword and boom, you have concurrency. And the compliation takes less than a second.</p> <p>I find the channels in go much more convenient to work with too. Unlike rust’s mpsc, go channels are like
+black magic. It just works and you don’t know why.</p> <p><strong>Concurrency in Go:</strong></p> <pre class="language-go"></pre> <p>One may argue that rust is faster and safer than go, and I understand. But sacrificing a little speed
+for fast iteration + easy concurrency is a sacrifice I am willing to take. Sorry fellow rustaceans.</p> <p>That said, I also want to mention that for everything else other than concurrency, I feel that Rust is just
+superior. Here are the reasons:</p> <ul><li><code>Option&lt;T&gt;</code> and <code>Result&lt;T, E&gt;</code> are superior to <code>if err != null</code>.</li> <li>Clap with <code>derive</code> feature (for CLI’s).</li> <li>Better for systems programming.</li> <li>Better WASM support.</li></ul> <p>And most importantly, <strong>rust is my home turf</strong>. Go is mostly focused on cloud too, which is an area
+in which I’ve never worked, wish to never work on (as of now). So, for everything other than concurrency,
+I’ll be working right here in rust. And regarding my progress in Go, right now, I am still exploring
+the languageand am yet to make an actual project in it, which I hopefully will do soon (the idea must come).</p>`,1);function m(i){var s=p(),c=n(t(s),8);o(c,()=>`<code class="language-go">ch <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">bool</span><span class="token punctuation">)</span>
+
+<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">defer</span> fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Awesome"</span><span class="token punctuation">)</span>
+    ch <span class="token operator">&lt;-</span> <span class="token boolean">true</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token operator">&lt;-</span>ch</code>`,!0),r(c),e(8),a(i,s)}export{c as t};

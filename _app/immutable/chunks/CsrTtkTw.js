@@ -1,0 +1,1 @@
+var e=``+new URL(`../assets/buzzay.B6e_8pSD.webp`,import.meta.url).href;export{e as t};

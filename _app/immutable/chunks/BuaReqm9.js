@@ -1,0 +1,14 @@
+import{F as e,G as t,K as n,P as r,W as i,m as a,x as o,y as s}from"./WWTSD2Qb.js";import"./xihTtKlq.js";var c=n({default:()=>m,metadata:()=>l}),l={title:`Configure Kitty to be Super Fast`,date:`2026-09-20T00:00:00.000Z`,description:`How to setup kitty terminal to open super fast.`},{title:u,date:d,description:f}=l,p=o(`<p>It is after I tried out foot terminal I realized how slow kitty is. The main feature that makes foot so fast is its
+client-server system. One single server will be responsible for handling the terminal. So, the client can just
+immediately start up since the server already is warmed up.</p> <p>I’m not sure if this is an already a well known feature of kitty. But I surely am only discovering it now, and this blog
+will serve as a documentation which I can visit later when I setup kitty again.</p> <h2>Reasons to Choose Kitty</h2> <p>Before going forward, it is important to know why I choose kitty over foot, despite kitty being slower than it.
+The main reason is the built in multiplexer in kitty. It just ties with the terminal so much better than the
+foot + tmux setup. And I find kitty’s default multiplexer keybindings to be way faster and more convenient than tmux’s
+default keybindings. Although the keybindings in tmux can be changed to be similar to kitty’s, some things like
+making mouse support is not as robust as kitty’s.</p> <h2>Client-Server Approach in Kitty</h2> <p>Kitty has a <code>--single-instance</code> (<code>-1</code> in short) argument which will make kitty use existing instances as a “server”,
+thus reducing startup time.</p> <p>So this command can be used to launch kitty as a single instance:</p> <pre class="language-bash"></pre> <p>But this still requires at least one instance of kitty to be alive to use it as the server. To eliminate this requirement,
+we can start up an headless kitty instance during startup of your window manager:</p> <pre class="language-bash"></pre> <h2>Application in Sway</h2> <p>These commands can be applied in sway with the following config:</p> <pre class="language-conf"></pre> <h2>Conclusion</h2> <p>This will make kitty’s startup time <em>blazingly fast</em>. Finally, I can save <em>1s</em> of time…</p>`,1);function m(n){var o=p(),c=e(r(o),14);a(c,()=>`<code class="language-bash">kitty <span class="token parameter variable">-1</span></code>`,!0),t(c);var l=e(c,4);a(l,()=>`<code class="language-bash">kitty <span class="token parameter variable">-1</span> <span class="token parameter variable">--detach</span> --start-as<span class="token operator">=</span>hidden</code>`,!0),t(l);var u=e(l,6);a(u,()=>`<code class="language-conf"># During startup
+exec kitty -1 --detach --start-as=hidden
+
+# Terminal Binding
+bindsym Mod4+Return exec kitty -1</code>`,!0),t(u),i(4),s(n,o)}export{c as t};

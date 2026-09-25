@@ -12,20 +12,20 @@
 				document.documentElement.classList.add('light-mode');
 			}
 		</script>
-		<link href="../../_app/immutable/entry/start.BVpyZnAb.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/DgJN5Lrc.js" rel="modulepreload">
+		<link href="../../_app/immutable/entry/start.LmLlJVWM.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/CSjVcB4a.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/WWTSD2Qb.js" rel="modulepreload">
-		<link href="../../_app/immutable/entry/app.Bj63nSPN.js" rel="modulepreload">
+		<link href="../../_app/immutable/entry/app.D32vUkvL.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/HclGiUj8.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/xihTtKlq.js" rel="modulepreload">
-		<link href="../../_app/immutable/nodes/0.hM6zYEco.js" rel="modulepreload">
-		<link href="../../_app/immutable/nodes/4.BQlMlqKh.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/BIKqWmYT.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/PApwVlU7.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/C4LHY1rl.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/0.Y-xbt5iN.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/4.G4YRJFXM.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/BbRlsuIo.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/DfdlJKBi.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/DyhUMO60.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/CIAwlR2T.js" rel="modulepreload">
 		<!--12qhfyh--><link rel="icon" href="/_app/immutable/assets/favicon.DM76KyXi.png"/><!---->
-		<link href="../../_app/immutable/assets/0.BBYGtkmN.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/0.DlydWEve.css" rel="stylesheet">
 		<link href="../../_app/immutable/assets/NavBar.DJT1wu4R.css" rel="stylesheet">
 	</head>
 	<body data-sveltekit-preload-data="hover">
@@ -36,17 +36,17 @@ from the core? Why not go one step further and decouple the entire compositor? A
 to keep up with modern wayland protocols, or add new features to satisfy the users. And a highly decoupled compositor
 can just composite and let the comminity lead it however they want. And this my friend, is the ideal wayland compositor
 in my point of view.</p> <h2>The Proposal</h2> <p>After a lot of brainstorming, I came up with the exact thing that makes the compositor of my dreams.</p> <h3>Fundamentals</h3> <ul><li>There should be no configuration file at all.</li> <li>Everything should be done via IPC and shell.</li> <li>Plugin system should be the biggest priority.</li> <li>Just Keep It Simple Stupid (KISS).</li> <li>Everything in pure C.</li></ul> <p>That should be the fundamentals of the compositor. Just enough to do one thing well.</p> <h3>Proposed IPC System</h3> <p>The user should be able to interact with the compositor using shell commands through the IPC.
-Here is a simple system I could think of right now:</p> <pre class="language-bash"><!----><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
-
-<span class="token comment"># Note: 'comp' stands for Compositor Name</span>
-
-<span class="token comment"># Load plugins</span>
-comp <span class="token parameter variable">--load</span> window-mgr
-comp <span class="token parameter variable">--load</span> input
-
-<span class="token comment"># Input handling</span>
-comp <span class="token parameter variable">--msg</span> input <span class="token string">"Super+Return"</span> <span class="token string">"kitty"</span>
-comp <span class="token parameter variable">--msg</span> input <span class="token string">"Super+Q"</span> <span class="token string">"comp --msg window-mgr close_active"</span></code><!----></pre> <p>The <code>--load</code> command loads the plugins <strong>into</strong> the compositor. Not just implementing some protocol that the compositor
+Here is a simple system I could think of right now:</p> <!----><pre class="shiki shiki-themes catppuccin-latte dark-plus" style="background-color:#eff1f5;--shiki-dark-bg:#1E1E1E;color:#4c4f69;--shiki-dark:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#EA76CB;--shiki-light-font-style:italic;--shiki-dark:#6A9955;--shiki-dark-font-style:inherit">#!/bin/bash</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#6A9955;--shiki-dark-font-style:inherit"># Note: 'comp' stands for Compositor Name</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#6A9955;--shiki-dark-font-style:inherit"># Load plugins</span></span>
+<span class="line"><span style="color:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#DCDCAA;--shiki-dark-font-style:inherit">comp</span><span style="color:#40A02B;--shiki-dark:#569CD6"> --load</span><span style="color:#40A02B;--shiki-dark:#CE9178"> window-mgr</span></span>
+<span class="line"><span style="color:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#DCDCAA;--shiki-dark-font-style:inherit">comp</span><span style="color:#40A02B;--shiki-dark:#569CD6"> --load</span><span style="color:#40A02B;--shiki-dark:#CE9178"> input</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#6A9955;--shiki-dark-font-style:inherit"># Input handling</span></span>
+<span class="line"><span style="color:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#DCDCAA;--shiki-dark-font-style:inherit">comp</span><span style="color:#40A02B;--shiki-dark:#569CD6"> --msg</span><span style="color:#40A02B;--shiki-dark:#CE9178"> input</span><span style="color:#40A02B;--shiki-dark:#CE9178"> "Super+Return"</span><span style="color:#40A02B;--shiki-dark:#CE9178"> "kitty"</span></span>
+<span class="line"><span style="color:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#DCDCAA;--shiki-dark-font-style:inherit">comp</span><span style="color:#40A02B;--shiki-dark:#569CD6"> --msg</span><span style="color:#40A02B;--shiki-dark:#CE9178"> input</span><span style="color:#40A02B;--shiki-dark:#CE9178"> "Super+Q"</span><span style="color:#40A02B;--shiki-dark:#CE9178"> "comp --msg window-mgr close_active"</span></span></code></pre><!----> <p>The <code>--load</code> command loads the plugins <strong>into</strong> the compositor. Not just implementing some protocol that the compositor
 supports. Just extend the core compositor entirely. <strong>Users will have maximum control that way.</strong></p> <h3>Plugin System</h3> <p>This must be the heart and soul of the compositor. There must be a <code>comp.h</code> file which plugins can use.
 The plugins will then use the <code>comp.h</code> file to build a plugin and compile down to a <code>.so</code> file which
 the compositor can load and execute freely.</p> <p>The benifit of having the compositor written in pure C is this, the plugin system. C ABI is completely stable.
@@ -56,15 +56,15 @@ originally built for. An architecture like that is pretty hard to beat under the
 			
 			<script>
 				{
-					__sveltekit_1dud9tm = {
+					__sveltekit_1qcw67z = {
 						base: new URL("../..", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("../../_app/immutable/entry/start.BVpyZnAb.js"),
-						import("../../_app/immutable/entry/app.Bj63nSPN.js")
+						import("../../_app/immutable/entry/start.LmLlJVWM.js"),
+						import("../../_app/immutable/entry/app.D32vUkvL.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 4],

@@ -12,20 +12,20 @@
 				document.documentElement.classList.add('light-mode');
 			}
 		</script>
-		<link href="../../_app/immutable/entry/start.BVpyZnAb.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/DgJN5Lrc.js" rel="modulepreload">
+		<link href="../../_app/immutable/entry/start.LmLlJVWM.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/CSjVcB4a.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/WWTSD2Qb.js" rel="modulepreload">
-		<link href="../../_app/immutable/entry/app.Bj63nSPN.js" rel="modulepreload">
+		<link href="../../_app/immutable/entry/app.D32vUkvL.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/HclGiUj8.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/xihTtKlq.js" rel="modulepreload">
-		<link href="../../_app/immutable/nodes/0.hM6zYEco.js" rel="modulepreload">
-		<link href="../../_app/immutable/nodes/4.BQlMlqKh.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/BIKqWmYT.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/PApwVlU7.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/C4LHY1rl.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/0.Y-xbt5iN.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/4.G4YRJFXM.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/BbRlsuIo.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/DfdlJKBi.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/DyhUMO60.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/CIAwlR2T.js" rel="modulepreload">
 		<!--12qhfyh--><link rel="icon" href="/_app/immutable/assets/favicon.DM76KyXi.png"/><!---->
-		<link href="../../_app/immutable/assets/0.BBYGtkmN.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/0.DlydWEve.css" rel="stylesheet">
 		<link href="../../_app/immutable/assets/NavBar.DJT1wu4R.css" rel="stylesheet">
 	</head>
 	<body data-sveltekit-preload-data="hover">
@@ -33,14 +33,14 @@
 a bit of friction as I come from a Rust/C background, the concurrency in go is just way easier to work with in general.</p> <p>In rust, you would need to bring in the full tokio stack just to get a basic concurrent application going,
 then wait a long time for the compiler to compile everything. There is no such issues like this in go,
 just use the <code>go</code> keyword and boom, you have concurrency. And the compliation takes less than a second.</p> <p>I find the channels in go much more convenient to work with too. Unlike rust’s mpsc, go channels are like
-black magic. It just works and you don’t know why.</p> <p><strong>Concurrency in Go:</strong></p> <pre class="language-go"><!----><code class="language-go">ch <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">bool</span><span class="token punctuation">)</span>
-
-<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">defer</span> fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Awesome"</span><span class="token punctuation">)</span>
-    ch <span class="token operator">&lt;-</span> <span class="token boolean">true</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token operator">&lt;-</span>ch</code><!----></pre> <p>One may argue that rust is faster and safer than go, and I understand. But sacrificing a little speed
+black magic. It just works and you don’t know why.</p> <p><strong>Concurrency in Go:</strong></p> <!----><pre class="shiki shiki-themes catppuccin-latte dark-plus" style="background-color:#eff1f5;--shiki-dark-bg:#1E1E1E;color:#4c4f69;--shiki-dark:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#4C4F69;--shiki-dark:#9CDCFE">ch</span><span style="color:#179299;--shiki-dark:#D4D4D4"> :=</span><span style="color:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#DCDCAA;--shiki-dark-font-style:inherit"> make</span><span style="color:#7C7F93;--shiki-dark:#D4D4D4">(</span><span style="color:#8839EF;--shiki-dark:#569CD6">chan</span><span style="color:#8839EF;--shiki-dark:#4EC9B0"> bool</span><span style="color:#7C7F93;--shiki-dark:#D4D4D4">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8839EF;--shiki-dark:#C586C0">go</span><span style="color:#8839EF;--shiki-dark:#569CD6"> func</span><span style="color:#7C7F93;--shiki-dark:#D4D4D4">()</span><span style="color:#7C7F93;--shiki-dark:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#8839EF;--shiki-dark:#C586C0">    defer</span><span style="color:#4C4F69;--shiki-dark:#9CDCFE"> fmt</span><span style="color:#7C7F93;--shiki-dark:#D4D4D4">.</span><span style="color:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#DCDCAA;--shiki-dark-font-style:inherit">Println</span><span style="color:#7C7F93;--shiki-dark:#D4D4D4">(</span><span style="color:#40A02B;--shiki-dark:#CE9178">"Awesome"</span><span style="color:#7C7F93;--shiki-dark:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#4C4F69;--shiki-dark:#9CDCFE">    ch</span><span style="color:#179299;--shiki-dark:#D4D4D4"> &#x3C;-</span><span style="color:#FE640B;--shiki-dark:#569CD6"> true</span></span>
+<span class="line"><span style="color:#7C7F93;--shiki-dark:#D4D4D4">}()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#179299;--shiki-dark:#D4D4D4">&#x3C;-</span><span style="color:#4C4F69;--shiki-dark:#9CDCFE">ch</span></span></code></pre><!----> <p>One may argue that rust is faster and safer than go, and I understand. But sacrificing a little speed
 for fast iteration + easy concurrency is a sacrifice I am willing to take. Sorry fellow rustaceans.</p> <p>That said, I also want to mention that for everything else other than concurrency, I feel that Rust is just
 superior. Here are the reasons:</p> <ul><li><code>Option&lt;T></code> and <code>Result&lt;T, E></code> are superior to <code>if err != null</code>.</li> <li>Clap with <code>derive</code> feature (for CLI’s).</li> <li>Better for systems programming.</li> <li>Better WASM support.</li></ul> <p>And most importantly, <strong>rust is my home turf</strong>. Go is mostly focused on cloud too, which is an area
 in which I’ve never worked, wish to never work on (as of now). So, for everything other than concurrency,
@@ -49,15 +49,15 @@ the languageand am yet to make an actual project in it, which I hopefully will d
 			
 			<script>
 				{
-					__sveltekit_1dud9tm = {
+					__sveltekit_1qcw67z = {
 						base: new URL("../..", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("../../_app/immutable/entry/start.BVpyZnAb.js"),
-						import("../../_app/immutable/entry/app.Bj63nSPN.js")
+						import("../../_app/immutable/entry/start.LmLlJVWM.js"),
+						import("../../_app/immutable/entry/app.D32vUkvL.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 4],

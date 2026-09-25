@@ -3,12 +3,18 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
-	--color-dark: #191b1a;
+	--color-dark: #111111;
 	--color-light: #d2c5b7;
 	--color-pure-white: #ffffff;
 }
 
 @variant dark (&:where(.dark-mode, .dark-mode *));
+
+html.dark-mode .shiki,
+html.dark-mode .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
 
 @layer base {
 	:root,

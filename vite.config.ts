@@ -4,6 +4,7 @@ import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
 import Icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vite';
+import { codeToHtml } from 'shiki';
 
 export default defineConfig({
 	plugins: [
@@ -16,7 +17,21 @@ export default defineConfig({
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
 			adapter: adapter(),
-			preprocess: [mdsvex({ extensions: ['.svx', '.md'] })],
+			preprocess: [mdsvex({ 
+                extensions: ['.svx', '.md'],
+                highlight: {
+                    highlighter: async (code, lang = 'text') => {
+                        const html = await codeToHtml(code, {
+                            lang,
+                            themes: {
+                                dark: 'dark-plus',
+                                light: 'catppuccin-latte'
+                            },
+                        });
+                        return `{@html ${JSON.stringify(html)}}`;
+                    }
+                }
+            })],
 			extensions: ['.svelte', '.svx', '.md']
 		})
 	]

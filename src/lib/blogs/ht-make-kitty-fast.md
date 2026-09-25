@@ -41,7 +41,7 @@ kitty -1 --detach --start-as=hidden
 
 These commands can be applied in sway with the following config:
 
-```conf
+```bash
 # During startup
 exec kitty -1 --detach --start-as=hidden
 

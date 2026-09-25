@@ -19,17 +19,21 @@
 <NavBar />
 
 <Container>
-	<div class="mb-4 rounded-lg p-2 outline-1 outline-light">
-		<h1>All Posts</h1>
+	<div class="mb-4 rounded-lg p-2">
+        <div class="m-8">
+            <h1 class="text-center mb-2!">Blog</h1>
+            <p class="text-center">Jolting my thoughts down!</p>
+        </div>
 		<div class="space-y-2">
 			{#each data.posts as post}
+                <hr class="p-0! m-0! my-6! border-dark/10 dark:border-light/20!" />
 				<a
 					href="/blog/{post.slug}"
-					class="bg-canvas/80 grid grid-cols-[1fr_auto] items-center gap-4 rounded-lg p-4 no-underline outline-1 outline-light"
+					class="bg-canvas/80 grid grid-cols-[1fr_auto] items-center gap-4 rounded-lg no-underline group"
 				>
 					<div class="min-w-0">
 						<h2
-							class="truncate text-base font-semibold text-current"
+							class="truncate text-base font-semibold text-current group-hover:opacity-80"
 							style="margin: 0 !important; margin-top: 0.25rem !important;"
 						>
 							{post.meta.title}
@@ -53,6 +57,7 @@
 			{:else}
 				<p>No blog posts found.</p>
 			{/each}
+            <hr class="p-0! m-0! my-6! border-[#262626]!"/>
 		</div>
 	</div>
 </Container>

@@ -1,5 +1,6 @@
 ---
 title: NBCL
+description: A configuration language with scripting capabilities.
 ---
 
 Node Based Configuration Language (NBCL) is configuration language with a twist. Rather than static configuration,

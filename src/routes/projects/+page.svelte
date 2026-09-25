@@ -87,13 +87,16 @@
 <NavBar />
 
 <Container>
-	<div class="mb-4 rounded-lg p-2 outline-1 outline-light">
-		<h1>All Projects</h1>
+	<div class="mb-4 rounded-lg p-2">
+        <div class="m-8">
+            <h1 class="text-center mb-0! mt-5">All Projects</h1>
+            <p class="text-center">Projects I've done so far.</p>
+        </div>
 		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
 			{#each projects as project}
 				<a
 					href={project.href}
-					class="bg-canvas/80 flex flex-col justify-between rounded-lg p-4 no-underline outline-1 outline-light transition-all duration-200 hover:scale-[1.02]"
+					class="bg-canvas/80 flex flex-col justify-between rounded-lg p-4 no-underline border border-dark/30 dark:border-light/30 transition-all dark:hover:border-light hover:border-dark"
 				>
 					<div class="min-w-0">
 						<h2

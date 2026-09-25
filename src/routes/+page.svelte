@@ -70,11 +70,11 @@
 <NavBar />
 
 <Container>
-	<div class="mb-4 rounded-lg p-2 outline-1 outline-light">
+	<div class="mt-10 mb-4 rounded-lg p-2 outline-1 outline-light/30">
 		<About />
 	</div>
 
-	<div class="mb-4 rounded-lg p-2 outline-1 outline-light">
+	<div class="mb-4 rounded-lg p-2 outline-1 outline-light/30">
 		<h1>Tech Stack</h1>
 		<div class="grid grid-cols-1 gap-10 md:grid-cols-2">
 			<div>
@@ -124,13 +124,13 @@
 		</div>
 	</div>
 
-	<div class="mb-4 rounded-lg p-2 outline-1 outline-light">
+	<div class="mb-4 rounded-lg p-2 outline-1 outline-light/30">
 		<h1>Featured Projects</h1>
 		<div class="flex flex-col gap-4">
 			{#each projects as project}
 				<a href={project.href} class="no-underline">
 					<div
-						class="group bg-background relative col-span-3 flex min-h-[300px] transform-gpu flex-col justify-between overflow-hidden rounded-xl [box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] outline-1 outline-light [border:1px_solid_rgba(255,255,255,.1)] sm:min-h-[400px] md:min-h-[500px]"
+						class="group bg-background relative col-span-3 flex min-h-[300px] transform-gpu flex-col justify-between overflow-hidden rounded-xl [box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] outline-1 outline-light/30 [border:1px_solid_rgba(255,255,255,.1)] sm:min-h-[400px] md:min-h-[500px]"
 					>
 						<div>
 							<img
@@ -151,7 +151,7 @@
 							<div class="mt-2 mb-2 flex gap-2">
 								{#each project.tags as tag}
 									<p
-										class="rounded-full pr-3 pl-3 text-white outline-1 outline-light"
+										class="rounded-full pr-3 pl-3 text-white outline-1 outline-light/30"
 										style="margin: 0 !important; margin-top: 0.25rem !important;"
 									>
 										{tag}

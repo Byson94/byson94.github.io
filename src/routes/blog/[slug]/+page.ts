@@ -12,6 +12,7 @@ export async function load({ params }) {
 		return {
 			content: post.default,
 			meta: post.metadata,
+            headings: post.metadata.headings || [],
 			readingTime
 		};
 	} catch (e) {

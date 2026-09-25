@@ -47,7 +47,7 @@
 <div
 	class="bg-pure-white dark:bg-dark sticky top-0 z-50 w-full border-b border-gray-700 select-none transition-transform duration-300 md:translate-y-0 {isHidden ? '-translate-y-24' : 'translate-y-0'}"
 >
-    <div class="mx-auto grid max-w-[85vw] grid-cols-[auto_1fr_auto] items-center p-2 md:grid-cols-3">
+    <div class="mx-auto grid md:max-w-[85vw] grid-cols-[auto_1fr_auto] items-center p-4 md:p-2 md:grid-cols-3">
         <a href="/" class="justify-self-start font-bold text-black no-underline dark:text-white"
             >Nilay Byju</a
         >

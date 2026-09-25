@@ -46,13 +46,17 @@
 								{post.meta.description}
 							</p>
 						{/if}
+                        {#if post.meta.date}
+                            <time class="self-start text-xs whitespace-nowrap text-current/30 sm:self-center uppercase md:hidden block mt-2">
+                                {formatDate(post.meta.date)}
+                            </time>
+                        {/if}
 					</div>
-
-					{#if post.meta.date}
-						<time class="self-start text-xs whitespace-nowrap text-current/50 sm:self-center">
-							{formatDate(post.meta.date)}
-						</time>
-					{/if}
+                    {#if post.meta.date}
+                        <time class="self-start text-xs whitespace-nowrap text-current/30 sm:self-center uppercase md:block hidden">
+                            {formatDate(post.meta.date)}
+                        </time>
+                    {/if}
 				</a>
 			{:else}
 				<p>No blog posts found.</p>

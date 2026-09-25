@@ -20,7 +20,7 @@
 
 <Container>
     <div class="mt-10 flex" id="page"> 
-        <article use:extractToc class="prose w-full max-w-none p-2 dark:prose-invert">
+        <article class="prose w-full max-w-none p-2 dark:prose-invert">
             {#if data.meta}
                 <h1 class="mb-0!">{data.meta.title}</h1>
                 <p>{data.meta.description}</p>
@@ -44,7 +44,7 @@
 
             <data.content />
         </article>
-        <aside class="toc-sidebar min-w-[200px] pl-6">
+        <aside class="toc-sidebar min-w-[200px] pl-6 md:block hidden">
             <nav class="sticky top-18">
                 <h3 class="font-bold">On This Page</h3>
                 <ul class="list-none p-0">

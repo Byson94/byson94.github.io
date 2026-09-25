@@ -7,17 +7,17 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import Icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vite';
 import { codeToHtml } from 'shiki';
+import GithubSlugger from 'github-slugger';
 
 /** Plugin to expose extracted headings inside mdsvex metadata */
-function attachHeadingsToMeta() {
+    function attachHeadingsToMeta() {
     return (tree, vfile) => {
         vfile.data.fm = vfile.data.fm || {};
         if (vfile.data.headings) {
+            const slugger = new GithubSlugger();
+
             vfile.data.fm.headings = vfile.data.headings.map((h) => ({
-                id: h.value
-                    .toLowerCase()
-                    .replace(/[^\w\s-]/g, '')
-                    .replace(/\s+/g, '-'),
+                id: slugger.slug(h.value),
                 text: h.value,
                 depth: h.depth
             }));

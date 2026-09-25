@@ -1,0 +1,1 @@
+import{S as e,b as t,q as n}from"./CJov-gak.js";import"./xihTtKlq.js";var r=n({default:()=>u,metadata:()=>i}),i={title:`My First Post`,date:`2026-06-07T00:00:00.000Z`,description:`Beep Boop! The site is redesigned!`,headings:[]},{title:a,date:o,description:s,headings:c}=i,l=e(`<p>Hello, World!</p>`);function u(e){var n=l();t(e,n)}export{r as t};

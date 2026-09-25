@@ -1,5 +1,6 @@
 var e=`---
 title: Buzzay
+description: A wlroots based wayland compositor.
 ---
 
 <script>

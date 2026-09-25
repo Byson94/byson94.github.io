@@ -1,5 +1,6 @@
 var e=`---
 title: Ewwii
+description: An extensible widget system based on eww.
 ---
 
 Ewwii is a fork of [eww](https://github.com/elkowar/eww), the popular rust based widget system. It improves eww in the following ways:

@@ -12,7 +12,7 @@
 		{#if data.meta}
 			<h1 class="mb-0!">{data.meta.title}</h1>
             <p>{data.meta.description}</p>
-			<hr />
+            <hr class="border-dark/10 dark:border-light/20!" />
 		{/if}
 
 		<data.content />

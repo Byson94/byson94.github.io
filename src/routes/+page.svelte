@@ -27,6 +27,19 @@
 	import Supabase from '~icons/devicon/supabase';
 	import Vercel from '~icons/devicon/vercel';
 
+    import Linkedin from '~icons/devicon/linkedin';
+    import Twitter from '~icons/devicon/twitter';
+    import Reddit from './components/Reddit.svelte';
+    import Email from './components/Email.svelte';
+
+    const socials = [
+        { name: 'GitHub', href: 'https://github.com/Byson94', icon: GitHub, classOverride: 'dark:invert' },
+        { name: 'LinkedIn', href: 'https://www.linkedin.com/in/nilay-byju-1b500542a/', icon: Linkedin },
+        { name: 'Reddit', href: 'https://www.reddit.com/user/Byson94_dev/', icon: Reddit },
+        { name: 'Twitter / X', href: 'https://x.com/byson94', icon: Twitter, classOverride: 'dark:invert' },
+        { name: 'Email', href: 'mailto:dev.byson94@gmail.com', icon: Email }
+    ];
+
 	const projects = [
 		{
 			name: 'Ewwii',
@@ -70,12 +83,45 @@
 <NavBar />
 
 <Container>
-	<div class="mt-10 mb-4 rounded-lg p-2 outline-1 outline-light/30">
-		<About />
+	<div class="mt-10">
+        <div class="m-5">
+            <h1 class="text-center m-0!">About</h1>
+            <p class="text-center">A few words about myself.</p>
+        </div>
+    
+        <div class="flex items-stretch gap-4">
+            <div class="border border-light p-4 rounded-lg flex-1 min-w-0">
+                <About />
+            </div>
+
+            <div class="border border-light p-4 rounded-lg flex flex-col gap-3 w-fit">
+                <h2 class="text-sm font-semibold uppercase tracking-wider text-current/60">Socials</h2>
+            
+                <ul class="grid grid-cols-2 gap-y-2 p-0 list-none m-0">
+                    {#each socials as { name, href, icon: Icon, classOverride }}
+                        <li>
+                        <a
+                            {href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex items-center gap-2.5 text-sm text-current/80 hover:text-current transition-colors duration-150 no-underline p-1.5 rounded-md hover:bg-current/5"
+                          >
+                            <Icon class="w-5 h-5 shrink-0 {classOverride}" />
+                            <span>{name}</span>
+                        </a>
+                        </li>
+                    {/each}
+                </ul>
+            </div>
+        </div>
 	</div>
 
-	<div class="mb-4 rounded-lg p-2 outline-1 outline-light/30">
-		<h1>Tech Stack</h1>
+	<div class="mt-10">
+        <div class="m-5">
+            <h1 class="text-center m-0!">Tech Stack</h1>
+            <p class="text-center">Tools & Technologies I'm Familiar with.</p>
+        </div>
+        
 		<div class="grid grid-cols-1 gap-10 md:grid-cols-2">
 			<div>
 				<p class="border-b-1">Programming Languages</p>
@@ -124,8 +170,12 @@
 		</div>
 	</div>
 
-	<div class="mb-4 rounded-lg p-2 outline-1 outline-light/30">
-		<h1>Featured Projects</h1>
+	<div class="mt-10">
+        <div class="m-5">
+            <h1 class="text-center m-0!">Featured Projects</h1>
+            <p class="text-center">My main projects that I'm working on right now.</p>
+        </div>
+
 		<div class="flex flex-col gap-4">
 			{#each projects as project}
 				<a href={project.href} class="no-underline">

@@ -39,7 +39,7 @@
                     {/if}
                 </div>
 
-                <hr />
+                <hr class="border-dark/10 dark:border-light/20!" />
             {/if}
 
             <data.content />

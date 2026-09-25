@@ -21,13 +21,23 @@ export default defineConfig({
                 extensions: ['.svx', '.md'],
                 highlight: {
                     highlighter: async (code, lang = 'text') => {
-                        const html = await codeToHtml(code, {
-                            lang,
-                            themes: {
-                                dark: 'dark-plus',
-                                light: 'catppuccin-latte'
-                            },
-                        });
+                        let html;
+                        let themes = {
+                            dark: 'dark-plus',
+                            light: 'catppuccin-latte'
+                        };
+
+                        try {
+                            html = await codeToHtml(code, {
+                                lang,
+                                themes: themes,
+                            });
+                        } catch (e) {
+                             html = await codeToHtml(code, {
+                                lang: "text",
+                                themes: themes,
+                            });
+                        }
                         return `{@html ${JSON.stringify(html)}}`;
                     }
                 }

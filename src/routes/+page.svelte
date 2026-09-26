@@ -84,16 +84,14 @@
 
 <Container>
 	<div class="mt-10">
-        <div class="m-5">
-            <h1 class="text-center m-0!">About</h1>
-            <p class="text-center">A few words about myself.</p>
+        <div class="m-5 text-center">
+            <h1 class="m-0! text-6xl">Nilay Byju</h1>
         </div>
     
-        <div class="border border-light p-4 rounded-lg flex-1 min-w-0">
+        <div class="p-4 flex-1 min-w-0 max-w-[50vw] mx-auto">
             <About />
 
-            <h2 class="text-sm font-semibold uppercase tracking-wider text-current/80 mb-0">Socials</h2>
-            <ul class="flex gap-y-2 p-0 list-none m-0">
+            <ul class="flex gap-y-2 p-0 list-none m-0 justify-center">
                 {#each socials as { name, href, icon: Icon, classOverride }}
                     <li class="p-0">
                         <a

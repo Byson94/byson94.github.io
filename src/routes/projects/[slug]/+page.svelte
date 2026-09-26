@@ -1,6 +1,7 @@
 <script>
 	import Container from '../../components/Container.svelte';
 	import NavBar from '../../components/NavBar.svelte';
+    import Footer from '../../components/Footer.svelte';
 
 	let { data } = $props();
 </script>
@@ -18,3 +19,6 @@
 		<data.content />
 	</article>
 </Container>
+
+<Footer />
+

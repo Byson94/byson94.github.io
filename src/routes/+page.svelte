@@ -1,6 +1,7 @@
 <script>
 	import Container from './components/Container.svelte';
 	import NavBar from './components/NavBar.svelte';
+    import Footer from './components/Footer.svelte';
 	import About from '$lib/about.md';
 
 	import EwwiiBanner from '$lib/assets/ewwii-runtime.webp';
@@ -228,3 +229,5 @@
 		</div>
 	</div>
 </Container>
+
+<Footer />

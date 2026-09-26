@@ -1,6 +1,7 @@
 <script>
 	import Container from '../components/Container.svelte';
 	import NavBar from '../components/NavBar.svelte';
+    import Footer from '../components/Footer.svelte';
 
 	const projects = [
 		{
@@ -131,3 +132,6 @@
 		</div>
 	</div></Container
 >
+
+<Footer />
+

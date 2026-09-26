@@ -1,6 +1,8 @@
 import { mdsvex } from 'mdsvex';
 import rehypeSlug from 'rehype-slug';
 import remarkHeadings from '@vcarl/remark-headings';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex-svelte';
 import tailwindcss from '@tailwindcss/vite';
 import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
@@ -38,8 +40,8 @@ export default defineConfig({
 			adapter: adapter(),
 			preprocess: [mdsvex({ 
                 extensions: ['.svx', '.md'],
-                remarkPlugins: [remarkHeadings, attachHeadingsToMeta],
-                rehypePlugins: [rehypeSlug],
+                remarkPlugins: [remarkHeadings, attachHeadingsToMeta, remarkMath],
+                rehypePlugins: [rehypeSlug, rehypeKatex],
                 highlight: {
                     highlighter: async (code, lang = 'text') => {
                         let html;

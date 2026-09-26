@@ -89,17 +89,13 @@
             <p class="text-center">A few words about myself.</p>
         </div>
     
-        <div class="flex items-stretch gap-4">
-            <div class="border border-light p-4 rounded-lg flex-1 min-w-0">
-                <About />
-            </div>
+        <div class="border border-light p-4 rounded-lg flex-1 min-w-0">
+            <About />
 
-            <div class="border border-light p-4 rounded-lg flex flex-col gap-3 w-fit">
-                <h2 class="text-sm font-semibold uppercase tracking-wider text-current/60">Socials</h2>
-            
-                <ul class="grid grid-cols-2 gap-y-2 p-0 list-none m-0">
-                    {#each socials as { name, href, icon: Icon, classOverride }}
-                        <li>
+            <h2 class="text-sm font-semibold uppercase tracking-wider text-current/80 mb-0">Socials</h2>
+            <ul class="flex gap-y-2 p-0 list-none m-0">
+                {#each socials as { name, href, icon: Icon, classOverride }}
+                    <li class="p-0">
                         <a
                             {href}
                             target="_blank"
@@ -109,10 +105,9 @@
                             <Icon class="w-5 h-5 shrink-0 {classOverride}" />
                             <span>{name}</span>
                         </a>
-                        </li>
-                    {/each}
-                </ul>
-            </div>
+                    </li>
+                {/each}
+            </ul>
         </div>
 	</div>
 

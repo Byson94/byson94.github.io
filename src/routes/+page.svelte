@@ -29,16 +29,16 @@
 	import Vercel from '~icons/devicon/vercel';
 
     import Linkedin from '~icons/devicon/linkedin';
-    import Twitter from '~icons/devicon/twitter';
+    import Mastodon from './components/Mastodon.svelte';
     import Reddit from './components/Reddit.svelte';
     import Email from './components/Email.svelte';
 
     const socials = [
         { name: 'GitHub', href: 'https://github.com/Byson94', icon: GitHub, classOverride: 'dark:invert' },
         { name: 'LinkedIn', href: 'https://www.linkedin.com/in/nilay-byju-1b500542a/', icon: Linkedin },
-        { name: 'Reddit', href: 'https://www.reddit.com/user/Byson94_dev/', icon: Reddit },
-        { name: 'Twitter / X', href: 'https://x.com/byson94', icon: Twitter, classOverride: 'dark:invert' },
-        { name: 'Email', href: 'mailto:dev.byson94@gmail.com', icon: Email }
+        { name: 'Reddit', href: 'https://www.reddit.com/user/Byson94_dev/', icon: Reddit, classOverride: 'text-[#ff4500]' },
+        { name: 'Mastodon', href: 'https://mastodon.social/@byson94', icon: Mastodon, classOverride: 'text-[#6364FF]' },
+        { name: 'Email', href: 'mailto:dev.byson94@gmail.com', icon: Email, classOverride: 'text-[#0aba85]' }
     ];
 
 	const projects = [

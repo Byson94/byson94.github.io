@@ -45,13 +45,13 @@
 
             <data.content />
         </article>
-        <aside class="toc-sidebar min-w-[200px] pl-6 md:block hidden">
+        <aside class="toc-sidebar min-w-[200px] pl-6 border-l border-dark/10 dark:border-light/20 md:block hidden">
             <nav class="sticky top-18">
-                <h3 class="font-bold">On This Page</h3>
+                <h3 class="text-base font-mono uppercase tracking-widest text-current mb-4">On This Page</h3>
                 <ul class="list-none p-0">
                     {#each data.headings as { id, text, tag }}
                         <li class={tag === 'H3' ? 'pl-4' : ''}>
-                            <a href="#{id}" class="no-underline text-current/70 hover:text-current">{text}</a>
+                            <a href="#{id}" class="block text-sm font-medium no-underline text-current/70 hover:text-current transition-colors leading-snug">{text}</a>
                         </li>
                     {:else}
                         <li>

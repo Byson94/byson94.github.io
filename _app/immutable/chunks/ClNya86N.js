@@ -1,0 +1,1 @@
+import{C as e,J as t,x as n}from"./lnZ-MMH9.js";import"./xihTtKlq.js";var r=t({default:()=>u,metadata:()=>i}),i={title:`My First Post`,date:`2026-06-07T00:00:00.000Z`,description:`Beep Boop! The site is redesigned!`,headings:[]},{title:a,date:o,description:s,headings:c}=i,l=e(`<p>Hello, World!</p>`);function u(e){var t=l();n(e,t)}export{r as t};

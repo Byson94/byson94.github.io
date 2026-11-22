@@ -19,14 +19,38 @@
     let similarWorks = $derived.by(() => {
         if (!data.allWorks || !data.meta) return [];
 
-        return data.allWorks
-            .filter((work) => {
-                if (work.title === data.meta.title) return false;
-                if (data.meta.collection && work.collection === data.meta.collection) return true;
-                return work.category === data.meta.category;
-            })
-            .sort((a, b) => new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime())
-            .slice(0, 5);
+        const sameGroup = data.allWorks
+            .filter((work) => work.category === data.meta.category)
+            .sort((a, b) => new Date(a.date || 0).getTime() - new Date(b.date || 0).getTime());
+
+        if (sameGroup.length <= 5) {
+            return sameGroup.filter((w) => w.slug !== data.slug);
+        }
+
+        const currentIndex = sameGroup.findIndex((w) => w.slug === data.slug);
+        if (currentIndex === -1) return [];
+
+        let targetBefore = 1;
+        let targetAfter = 4;
+
+        let start = currentIndex - targetBefore;
+        let end = currentIndex + targetAfter;
+
+        if (end >= sameGroup.length) {
+            let overflow = end - (sameGroup.length - 1);
+            start = Math.max(0, start - overflow);
+            end = sameGroup.length - 1;
+        }
+
+        if (start < 0) {
+            let underflow = 0 - start;
+            end = Math.min(sameGroup.length - 1, end + underflow);
+            start = 0;
+        }
+
+        return sameGroup
+            .slice(start, end + 1)
+            .filter((w) => w.slug !== data.slug);
     });
 </script>
 
@@ -82,7 +106,7 @@
                             </a>
                         </li>
                     {:else}
-                        <li class="text-xs text-current/40 font-serif italic">
+                        <li class="text-xs text-current/40 italic">
                             No other works in this shelf yet.
                         </li>
                     {/each}

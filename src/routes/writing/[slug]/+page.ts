@@ -13,6 +13,7 @@ export async function load({ params }) {
 		return {
 			content: work.default,
 			meta: work.metadata,
+            slug: params.slug,
             allWorks
 		};
 	} catch (e) {

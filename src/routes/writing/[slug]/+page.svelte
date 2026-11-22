@@ -60,20 +60,23 @@
     <div class="mt-10 flex" id="page"> 
         <article class="prose w-full max-w-none p-2 dark:prose-invert">
             {#if data.meta}
-                <h1 class="mb-1!">{data.meta.title}</h1>
+                <h1 class="mb-2!">{data.meta.title}</h1>
 
-                <div class="text-current/70 flex items-center space-x-2 text-sm mb-1">
+                <div class="text-current/70 flex items-center space-x-2 text-sm mb-3">
                     {#if data.meta.date}
                         <time datetime={data.meta.date}>{formatDate(data.meta.date)}</time>
                     {/if}
+                </div>
 
-                    {#if data.meta.date && data.meta.category}
-                        <span>-</span>
-                    {/if}
-
+                <div class="flex flex-row gap-2 mb-4">
                     {#if data.meta.category}
-                        <span class="uppercase">
+                        <span class="rounded-full px-2 py-0.5 text-xs font-medium text-current/80 outline-1 outline-light uppercase">
                             {data.meta.category}
+                        </span>
+                    {/if}
+                    {#if data.meta.collection}
+                        <span class="rounded-full px-2 py-0.5 text-xs font-medium text-current/80 outline-1 outline-light uppercase">
+                            COL:{data.meta.collection}
                         </span>
                     {/if}
                 </div>

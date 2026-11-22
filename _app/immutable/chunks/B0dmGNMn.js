@@ -1,7 +1,7 @@
 var e=`---
 title: Silent Strings that Seldom Strike
 category: poetry
-collection: "Green Poetry"
+collection: Green Poetry
 date: 2026-11-21
 ---
 

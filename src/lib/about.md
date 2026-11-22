@@ -5,5 +5,4 @@ usage and performance. C is my primary programming language, but I am also comfo
 I am currently exploring R&D (Research & Development), working on learning Computer Science concepts, learning new programming
 languages, or maintaining my existing projects.
 
-When I am not programming, you can usually find me playing chess, reading articles, playing video games, or maybe trying to 
-recover Arch Linux, which I broke 5 minutes ago.
+When I am not programming, you can usually find me playing chess, or reading.

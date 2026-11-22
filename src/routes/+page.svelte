@@ -89,17 +89,17 @@
             <h1 class="m-0! text-6xl">Nilay Byju</h1>
         </div>
     
-        <div class="p-4 flex-1 min-w-0 max-w-[50vw] mx-auto">
+        <div class="p-4 flex-1 min-w-0 md:max-w-[50vw] mx-auto">
             <About />
 
-            <ul class="flex gap-y-2 p-0 list-none m-0 justify-center">
+            <ul class="flex flex-wrap gap-y-2 p-0 list-none m-0 justify-center">
                 {#each socials as { name, href, icon: Icon, classOverride }}
                     <li class="p-0">
                         <a
                             {href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="flex items-center gap-2.5 text-sm text-current/80 hover:text-current transition-colors duration-150 no-underline p-1.5 rounded-md hover:bg-current/5"
+                            class="flex items-center gap-1 text-sm text-current/80 hover:text-current transition-colors duration-150 no-underline p-1.5 rounded-md hover:bg-current/5"
                           >
                             <Icon class="w-5 h-5 shrink-0 {classOverride}" />
                             <span>{name}</span>

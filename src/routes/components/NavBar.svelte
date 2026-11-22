@@ -59,6 +59,11 @@
                 >Home</a
             >
             <a
+                href="/writing/"
+                class="rounded-full px-1 md:px-3 py-1 text-sm font-medium transition-colors hover:bg-neutral-300/80 dark:hover:bg-black/40"
+                >Writing</a
+            >
+            <a
                 href="/projects/"
                 class="rounded-full px-1 md:px-3 py-1 text-sm font-medium transition-colors hover:bg-neutral-300/80 dark:hover:bg-black/40"
                 >Projects</a

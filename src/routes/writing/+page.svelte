@@ -2,6 +2,7 @@
 	import Container from '../components/Container.svelte';
 	import NavBar from '../components/NavBar.svelte';
     import Footer from '../components/Footer.svelte';
+    import Newsletter from '../components/Newsletter.svelte';
 
 	let { data } = $props();
 
@@ -244,6 +245,10 @@
                 {/each}
             </div>
         {/if}
+
+        <div class="mx-auto mt-16 mb-10 max-w-3xl rounded-xl border border-dark/15 bg-neutral-200/40 px-6 py-4 dark:border-light/15 dark:bg-white/[0.04]">
+            <Newsletter />
+        </div>
 	</div>
 </Container>
 

@@ -1,8 +1,8 @@
-Hi, I'm Nilay, a {new Date().getFullYear() - 2012}-year-old **systems/backend developer** and an **open-source contributor** 
-from Kerala, India. I'm a self-taught developer who enjoys building low-level tools and systems software optimized for balancing memory 
-usage and performance. C is my primary programming language, but I am also comfortable with Rust and Python.
+Hi, I'm Nilay, a {new Date().getFullYear() - 2012}-year-old **systems/backend developer** and a **writer**
+from Kerala, India. I'm a self-taught developer who enjoys building low-level tools and systems software optimized 
+for balancing memory usage and performance. C is my primary programming language, but I am also comfortable with Rust and Python.
 
 I am currently exploring R&D (Research & Development), working on learning Computer Science concepts, learning new programming
 languages, or maintaining my existing projects.
 
-When I am not programming, you can usually find me playing chess, or reading.
+When I am not programming, you can usually find me playing chess, reading, or drafting a literary work.

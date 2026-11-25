@@ -1,0 +1,1 @@
+import{a as e}from"./6cQQ5rOe.js";function t(t,n){throw new e(t,n)}export{t};
